@@ -1,17 +1,51 @@
 import React, { useState, createContext} from "react";
-
-import logo from './logo.svg';
 import './App.css';
-import Login from './Login.js'
-import { UserContext } from './Login.js';
 import Resumo from "./Resumo"
 import Cadastro from './Cadastro';
 import DetalhesCategoria from './DetalhesCategoria';
-import TotalCategoria from './TotalCategoria';
-const mesAtual = 'Março'
+import axios from "axios";
+
+const UserContext = createContext();
+const mesAtual = 'Maio'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+
+  const [formData, setFormData] = useState({
+    usuario:'',
+    senha:''
+
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    axios.post("https://api-will.herokuapp.com/api/login", formData)
+      .then((response) => {
+        console.log(response.data.usuarioLogado);
+        if(response.data.usuarioLogado){
+            setIsLoggedIn(true);
+            sessionStorage.setItem("usuario", response.data.usuarioLogado);
+            sessionStorage.setItem("Logado", 'logado');
+
+        }else{
+            alert('ERRO: '+response.data.erro)
+
+        }
+
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const handleLogout = (event) => {
     event.preventDefault();
@@ -39,7 +73,24 @@ function App() {
 
         </div>
       ) : (
-       < Login/>
+        <UserContext.Provider value={{ usuarioLogadoTeste }}>
+{    
+        <form>
+          <label>
+            <h1>Ola {usuarioLogadoTeste}</h1>
+            Username:
+            <input type="text" name="usuario" onChange={handleInputChange} />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input type="password" name="senha" onChange={handleInputChange} />
+          </label>
+          <br />
+          <button type="submit" onClick={handleLogin}>Login</button>
+        </form>}
+        </UserContext.Provider>
+
        
        )}
         </UserContext.Provider>

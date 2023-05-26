@@ -6,7 +6,7 @@ import Cadastro from './Cadastro';
 import DetalhesCategoria from './DetalhesCategoria';
 import TotalCategoria from './TotalCategoria';
 
-const mesAtual = "Março"
+const mesAtual = "Maio"
 
 
 export const UserContext = createContext();
@@ -21,7 +21,7 @@ const Login = () => {
         senha:''
 
       });
-    const [isLoggedIn, setIsLoggedIn] = useState(null);
+    const [isLoggedIn, setIsLoggedIn] = useState(undefined);
 
       const handleLogin = (event) => {
         event.preventDefault();
@@ -71,7 +71,7 @@ const Login = () => {
   return (
     <UserContext.Provider value={{ usuarioLogadoTeste }}>
 {    
-        <form onSubmit={handleLogin}>
+        <form>
           <label>
             <h1>Ola {usuarioLogadoTeste}</h1>
             Username:
@@ -83,7 +83,7 @@ const Login = () => {
             <input type="password" name="senha" onChange={handleInputChange} />
           </label>
           <br />
-          <button type="submit">Login</button>
+          <button type="submit" onClick={handleLogin}>Login</button>
         </form>}
         </UserContext.Provider>
 

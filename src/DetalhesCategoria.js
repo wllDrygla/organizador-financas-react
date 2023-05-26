@@ -49,7 +49,7 @@ const  DetalhesCategoria = (props) =>{
     const [financa, setFinanca] = React.useState([]);
 
     const [formData, setFormData] = useState({
-        mesSelecionado:'Março'
+        mesSelecionado:'Maio'
       });
       const handleSelectChange = (event) => {
         const { name, value } = event.target;
