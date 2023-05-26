@@ -27,7 +27,7 @@ const Atualiza = (props) => {
 
   const handleUpdateItem = async () => {
     try {
-      const response = await axios.post(`https://dryglawill.win/${props.id}`, { item: updatedItem });
+      const response = await axios.post(`https://api-will.herokuapp.com/${props.id}`, { item: updatedItem });
       console.log(updatedItem);
     } catch (error) {
       console.error(error);

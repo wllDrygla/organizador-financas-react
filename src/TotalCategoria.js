@@ -27,7 +27,7 @@ const  TotalCategoria = (props) =>{
     var mes = props.mes
 var usuario = props.usuario
 var categoria = props.categoria
-const baseURL  = "https://dryglawill.win/api/total/"+categoria+"/"+mes+"/"+usuario
+const baseURL  = "https://api-will.herokuapp.com/api/total/"+categoria+"/"+mes+"/"+usuario
     const [total, setTotal] = React.useState(null);
     var listaFinancas = []
     React.useEffect(() => {

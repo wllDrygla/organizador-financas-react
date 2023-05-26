@@ -53,7 +53,7 @@ function Cadastro(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
       console.log('testeHandleSubmit')
-      const response = axios.post("https://dryglawill.win/api/cadastro", formData)
+      const response = axios.post("https://api-will.herokuapp.com/api/cadastro", formData)
     
     alert('CADASTRADO')
     };

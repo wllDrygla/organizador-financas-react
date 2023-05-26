@@ -67,9 +67,9 @@ const  DetalhesCategoria = (props) =>{
     
     var categoria = props.categoria
     var usuario = props.usuario
-    const baseURL  = "https://dryglawill.win/api/financa/"+usuario
-    const baseURLFinalizar  = "https://dryglawill.win/api/finalizar/"
-    const baseURLPendente  = "https://dryglawill.win/api/pendente/"
+    const baseURL  = "https://api-will.herokuapp.com/api/financa/"+usuario
+    const baseURLFinalizar  = "https://api-will.herokuapp.com/api/finalizar/"
+    const baseURLPendente  = "https://api-will.herokuapp.com/api/pendente/"
 
     var total = 0
     var total_antigo = 0

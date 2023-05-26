@@ -69,11 +69,11 @@ const  Resumo = (props) =>{
 
 
 
-    const baseURL  = "https://dryglawill.win/api/financa/"+usuario
+    const baseURL  = "https://api-will.herokuapp.com/api/financa/"+usuario
     const handleSubmit = (event, value) => {
       event.preventDefault();
       console.log(event)
-      axios.put("https://dryglawill.win/api/finalizar/"+value)
+      axios.put("https://api-will.herokuapp.com/api/finalizar/"+value)
         .then((response) => {
           console.log(response.data);
         })
@@ -81,7 +81,7 @@ const  Resumo = (props) =>{
           console.error(error);
         });
     };
-    const baseURLFinalizar  = "https://dryglawill.win/api/finalizar/"
+    const baseURLFinalizar  = "https://api-will.herokuapp.com/api/finalizar/"
 
     const [financa, setFinanca] = React.useState([]);
     var listaFinancasResumo = []

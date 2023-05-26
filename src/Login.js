@@ -25,7 +25,7 @@ const Login = () => {
 
       const handleLogin = (event) => {
         event.preventDefault();
-        axios.post("https://dryglawill.win/api/login", formData)
+        axios.post("https://api-will.herokuapp.com/api/login", formData)
           .then((response) => {
             console.log(response.data.usuarioLogado);
             if(response.data.usuarioLogado){
