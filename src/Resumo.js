@@ -16,7 +16,6 @@ background-color:white;
   margin: 5%;
   padding:5px;
 }
-
 `
 
 const DivStyle = styled.div`

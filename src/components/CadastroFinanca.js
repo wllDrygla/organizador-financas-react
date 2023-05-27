@@ -36,7 +36,7 @@ height:20px
 
 
 
-function Cadastro(props) {
+function CadastroFinanca(props) {
   const [formData, setFormData] = useState({
     nome: '',
     valor: '',
@@ -50,7 +50,7 @@ function Cadastro(props) {
     
 
 
-    usuario:props.usuario
+    usuario:props.user
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -82,7 +82,7 @@ function Cadastro(props) {
 
   return (
     <DivStyle>
-      <h1>CADASTRO FINANÇAS</h1>
+      <h1>CADASTRO  DE  FINANÇAS</h1>
     <FormStyle onSubmit={handleSubmit}>
       <LabelStyle>
         <InputStyle placeholder='NOME' name="nome" value={formData.nome} onChange={handleInputChange} />
@@ -221,4 +221,4 @@ function Cadastro(props) {
   );
 }
 
-export default Cadastro;
+export default CadastroFinanca;

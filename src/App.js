@@ -1,10 +1,12 @@
 import React, { useState, createContext } from "react";
 import './App.css';
 import Resumo from "./Resumo"
-import Cadastro from './Cadastro';
+import CadastroFinanca from './components/CadastroFinanca';
+import CadastroMeta from './components/CadastroMetas';
 import styled from "styled-components";
 import Login from "./Login";
 import Table from "./components/Table";
+import TableMetas from "./components/TableMetas";
 
 const UserContext = createContext();
 const mesAtual = 'Maio'
@@ -84,17 +86,23 @@ function App() {
             <LeftDiv>
               <TitleStyle>BEM-VINDO,  {userLogged}!</TitleStyle>
               <Resumo mes={mesAtual} user={userLogged} />
+              <TitleStyle>METAS:</TitleStyle>
+              <TableMetas user={userLogged} status='PENDENTE'></TableMetas>
+            <TableMetas user={userLogged} status='FAZENDO'></TableMetas>
+            <TableMetas user={userLogged} status='FINALIZADO'></TableMetas>
             </LeftDiv>
 
             <RightDiv>
             <Table user={userLogged} category='gasto'></Table>
             <Table user={userLogged} category='ganho'></Table>
             <Table user={userLogged} category='investimento'></Table>
+
             </RightDiv>
 
           </DivStyle>
 
-          <Cadastro usuario={userLogged} />
+          <CadastroFinanca user={userLogged} />
+          <CadastroMeta user={userLogged}></CadastroMeta>
           <ButtonStyle onClick={handleLogout}>SAIR</ButtonStyle>
 
         </BodyStyle>
