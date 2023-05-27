@@ -5,6 +5,8 @@ import styled from "styled-components";
 const DivStyle = styled.div`
 background-color: rgba(0, 240, 228, 0.297);
 text-align:center;
+border-radius: 30px;
+border: 3px black solid;
 `
 
 
