@@ -12,6 +12,10 @@ padding:10px;
 font-weight:bolder;
 font-size: 20px;
 border: 1px black solid;
+
+@media (max-width: 768px){
+    font-size: 13px;
+}
 `
 
 const GreenCellStyle = styled.p`
@@ -23,6 +27,9 @@ padding:10px;
 font-weight:bolder;
 font-size: 20px;
 border: 1px black solid;
+@media (max-width: 768px){
+    font-size: 13px;
+}
 `
 
 

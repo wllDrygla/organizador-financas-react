@@ -2,15 +2,16 @@ import React, { useState, createContext } from "react";
 import './App.css';
 import Resumo from "./Resumo"
 import Cadastro from './Cadastro';
-import DetalhesCategoria from './DetalhesCategoria';
-import axios from "axios";
 import styled from "styled-components";
+import Login from "./Login";
+import Table from "./components/Table";
 
 const UserContext = createContext();
 const mesAtual = 'Maio'
 const BodyStyle = styled.div`
 margin: 1%;
 text-align:center;
+max-width: 100%;
 
 `
 const DivStyle = styled.div`
@@ -19,33 +20,38 @@ border-radius:30px;
 text-align:center;
 border: 2px black solid;
 display: flex;
-margin:1%;
+margin:5%;
+
+@media (max-width: 768px) {
+  display: block;
+  margin:3%;
+}
 `
 
 const LeftDiv = styled.div`
 text-align: center;
 max-width:55%;
+
+@media (max-width: 768px) {
+  max-width: 100%;
+  
+}
 `
 
 const RightDiv = styled.div`
 text-align: center;
 max-width:45%;
-`
-const InputStyle = styled.input`
-margin:4px;
-font-size:20px;
-border-radius: 5px;
-text-align: center;
-padding:3px;
-max-width: 250px;
+@media (max-width: 768px) {
+  max-width: 100%;
+}
 `
 
 const TitleStyle = styled.h1`
 margin:5%;
-`
 
-const ParagraphStyle = styled.h2`
-margin:4px;
+@media (max-width: 768px){
+  font-size: 20px;
+}
 `
 
 const ButtonStyle = styled.button`
@@ -55,136 +61,51 @@ padding:0 10px;
 background-color:white;
 border-radius: 5px;
 margin:5px;
-
 `
 
-
-
-
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
-
-  const [formData, setFormData] = useState({
-    usuario: '',
-    senha: ''
-
-  });
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleLogin = (event) => {
-    event.preventDefault();
-    axios.post("https://api-will.herokuapp.com/api/login", formData)
-      .then((response) => {
-        console.log(response.data.usuarioLogado);
-        if (response.data.usuarioLogado) {
-          setIsLoggedIn(true);
-          sessionStorage.setItem("usuario", response.data.usuarioLogado);
-          sessionStorage.setItem("Logado", 'logado');
-
-        } else {
-          alert('ERRO: ' + response.data.erro)
-
-        }
-
-
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
-
   const handleLogout = (event) => {
     event.preventDefault();
-    setIsLoggedIn(false);
-    sessionStorage.setItem("usuario", '');
-    sessionStorage.setItem("Logado", '');
-  }
-  var usuarioLogadoTeste = sessionStorage.getItem("usuario")
-  var estaLogado = sessionStorage.getItem("Logado");
+    sessionStorage.setItem("user", '');
+    sessionStorage.setItem("userLogged", '');
+    window.location.reload();
+
+  };
+
+  const userLogged = sessionStorage.getItem("user");
+  const isLoggedIn = sessionStorage.getItem("userLogged");
+
   return (
-    <UserContext.Provider value={{ usuarioLogadoTeste }}>
-      {estaLogado == 'logado' ? (
+    <UserContext.Provider value={{ userLogged }}>
+      {isLoggedIn == 'true' ? (
         <BodyStyle>
           <DivStyle>
-            <LeftDiv>
-              <TitleStyle>BEM-VINDO,  {usuarioLogadoTeste}!</TitleStyle>
-              <Resumo mes={mesAtual} usuario={usuarioLogadoTeste} />
 
+            <LeftDiv>
+              <TitleStyle>BEM-VINDO,  {userLogged}!</TitleStyle>
+              <Resumo mes={mesAtual} user={userLogged} />
             </LeftDiv>
 
             <RightDiv>
-              <DetalhesCategoria usuario={usuarioLogadoTeste} categoria="ganho" />
-
-              <DetalhesCategoria usuario={usuarioLogadoTeste} categoria="gasto" />
-
-              <DetalhesCategoria usuario={usuarioLogadoTeste} categoria="investimento" />
+            <Table user={userLogged} category='gasto'></Table>
+            <Table user={userLogged} category='ganho'></Table>
+            <Table user={userLogged} category='investimento'></Table>
             </RightDiv>
 
-
-
-
-
           </DivStyle>
-          <Cadastro usuario={usuarioLogadoTeste} />
+
+          <Cadastro usuario={userLogged} />
           <ButtonStyle onClick={handleLogout}>SAIR</ButtonStyle>
+
         </BodyStyle>
-
       ) : (
-        <UserContext.Provider value={{ usuarioLogadoTeste }}>
-          <BodyStyle>
-            <DivStyle>
+       <Login>
 
-              {
-
-                <LeftDiv>
-                  <form>
-                    <label>
-                      <TitleStyle>Olá, seja bem-vindo ao organizador de finanças do Will</TitleStyle>
-
-                      <ParagraphStyle>Usuário</ParagraphStyle>
-                      <InputStyle type="text" name="usuario" onChange={handleInputChange} />
-                    </label>
-                    <br />
-                    <label>
-                      <ParagraphStyle>Senha</ParagraphStyle>
-                      <InputStyle type="password" name="senha" onChange={handleInputChange} />
-                    </label>
-                    <br />
-                    <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
-                  </form>
-                  <TitleStyle>Aqui temos uma exemplo de funcionamento do site:</TitleStyle>
-                  <Resumo mes={mesAtual} usuario={'teste'} />
-                </LeftDiv>
-
-
-              }
-              <RightDiv>
-
-                <DetalhesCategoria usuario={'teste'} categoria="ganho" />
-
-                <DetalhesCategoria usuario={'teste'} categoria="gasto" />
-
-                <DetalhesCategoria usuario={'teste'} categoria="investimento" />
-              </RightDiv>
-            </DivStyle>
-
-          </BodyStyle>
-
-
-        </UserContext.Provider>
+       </Login>
       )}
-
     </UserContext.Provider>
-
-  )
-}
+  );
+};
 
 
 

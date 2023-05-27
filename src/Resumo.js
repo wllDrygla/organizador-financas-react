@@ -12,6 +12,11 @@ margin:50px;
 padding:30px;
 background-color:white;
 
+@media (max-width: 768px) {
+  margin: 5%;
+  padding:5px;
+}
+
 `
 
 const DivStyle = styled.div`
@@ -32,6 +37,10 @@ padding:10px;
 color:red;
 font-size:40px;
 
+@media (max-width: 768px){
+  font-size: 18px;
+}
+
 `
 const InputStyle = styled.input`
 margin:4px;
@@ -43,33 +52,21 @@ max-width: 250px;
 font-weight:bolder;
 border: 2px red solid;
 background-color: white
+@media (max-width: 768px){
+  font-size: 13px;
+  border: 2px blue solid;
+  margin:5%;
+
+}
 `
 
 
 const Resumo = (props) => {
   const [formData, setFormData] = useState({
-    mes: 'Março'
+    mes: 'Maio'
   });
-  const [idSelecionado, setIdSelecionado] = useState('')
-  const [idMenu, setMostraMenu] = useState("")
-  var mes = props.mes
-  var usuario = props.usuario
-  console.log(usuario)
-
-
-
+  var usuario = props.user
   const baseURL = "https://api-will.herokuapp.com/api/financa/" + usuario
-  const handleSubmit = (event, value) => {
-    event.preventDefault();
-    console.log(event)
-    axios.put("https://api-will.herokuapp.com/api/finalizar/" + value)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
   const baseURLFinalizar = "https://api-will.herokuapp.com/api/finalizar/"
 
   const [financa, setFinanca] = React.useState([]);
@@ -83,28 +80,21 @@ const Resumo = (props) => {
       contador = contador + 1;
       if (contador <= 1) {
         for (let i = 0; i < financasResultado.data.financa.length; i++) {
-
           listaFinancasResumo.push(financasResultado.data.financa[i]);
           setFinanca(listaFinancasResumo)
-
         }
       }
-
     });
-
   }, []);
 
   if (!financa) return (<h1>Carregando....</h1>);
 
   return (
     <DivPaiStyle>
-
       <h1>Pendências mensais:</h1>
       {
         financa.map((item) => {
           if (formData.mes == item.mes && item.situacao == "pendente") {
-
-
             total_novo = item.valor;
             if (item.categoria == "gasto" || item.categoria == "investimento") {
               total = total_antigo - total_novo;
@@ -112,19 +102,20 @@ const Resumo = (props) => {
             total_antigo = total;
             return (
               <DivStyleDetalhes>
-           <TableRow name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao}></TableRow>
-              <form  method="post" action={baseURLFinalizar+item._id}>
-              <InputStyle type="submit" value="FINALIZAR
-              "></InputStyle>
-            </form>
+                <TableRow name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao}></TableRow>
+                <form method="post" action={baseURLFinalizar + item._id}>
+                  <InputStyle
+                    type="submit"
+                    value="FINALIZAR">
+                  </InputStyle>
+                </form>
               </DivStyleDetalhes>
             )
           }
         }
         )}
-
       <DivStyle>
-      <ParagraphStyleTotal>      </ParagraphStyleTotal>
+        <ParagraphStyleTotal>      </ParagraphStyleTotal>
         <ParagraphStyleTotal>  TOTAL:   </ParagraphStyleTotal>
         <ParagraphStyleTotal>     </ParagraphStyleTotal>
 
