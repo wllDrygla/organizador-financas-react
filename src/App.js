@@ -14,6 +14,7 @@ const BodyStyle = styled.div`
 margin: 1%;
 text-align:center;
 max-width: 100%;
+padding:0;
 
 `
 const DivStyle = styled.div`
@@ -22,17 +23,28 @@ border-radius:30px;
 text-align:center;
 border: 2px black solid;
 display: flex;
-margin:5%;
+margin:0;
+max-width: 100%;
 
 @media (max-width: 768px) {
   display: block;
   margin:3%;
 }
 `
+const CenterDiv = styled.div`
+text-align: center;
+max-width:35%;
+margin:1% ;
 
+@media (max-width: 768px) {
+  max-width: 100%;
+  
+}
+`
 const LeftDiv = styled.div`
 text-align: center;
-max-width:55%;
+max-width:35%;
+margin:1% ;
 
 @media (max-width: 768px) {
   max-width: 100%;
@@ -42,7 +54,9 @@ max-width:55%;
 
 const RightDiv = styled.div`
 text-align: center;
-max-width:45%;
+max-width:35%;
+margin:1% ;
+
 @media (max-width: 768px) {
   max-width: 100%;
 }
@@ -81,23 +95,31 @@ function App() {
     <UserContext.Provider value={{ userLogged }}>
       {isLoggedIn == 'true' ? (
         <BodyStyle>
+          <TitleStyle>BEM-VINDO,  {userLogged}!</TitleStyle>
+
           <DivStyle>
 
             <LeftDiv>
-              <TitleStyle>BEM-VINDO,  {userLogged}!</TitleStyle>
-              <Resumo mes={mesAtual} user={userLogged} />
-              <TitleStyle>'SISTEMA DE METAS ( em teste ):</TitleStyle>
+              <TitleStyle>SISTEMA DE METAS ( em teste ):</TitleStyle>
               <TableMetas user={userLogged} status='PENDENTE'></TableMetas>
-            <TableMetas user={userLogged} status='FAZENDO'></TableMetas>
-            <TableMetas user={userLogged} status='FINALIZADO'></TableMetas>
+              <TableMetas user={userLogged} status='FAZENDO'></TableMetas>
+              <TableMetas user={userLogged} status='FINALIZADO'></TableMetas>
             </LeftDiv>
 
-            <RightDiv>
-            <Table user={userLogged} category='gasto'></Table>
-            <Table user={userLogged} category='ganho'></Table>
-            <Table user={userLogged} category='investimento'></Table>
 
+            <CenterDiv>
+              <TitleStyle>PENDÊNCIAS MENSAIS:</TitleStyle>
+              <Resumo mes={mesAtual} user={userLogged} />
+            </CenterDiv>
+
+
+            <RightDiv>
+              <TitleStyle>FINANÇAS MENSAIS:</TitleStyle>
+              <Table user={userLogged} category='gasto'></Table>
+              <Table user={userLogged} category='ganho'></Table>
+              <Table user={userLogged} category='investimento'></Table>
             </RightDiv>
+
 
           </DivStyle>
 
@@ -107,9 +129,9 @@ function App() {
 
         </BodyStyle>
       ) : (
-       <Login>
+        <Login>
 
-       </Login>
+        </Login>
       )}
     </UserContext.Provider>
   );

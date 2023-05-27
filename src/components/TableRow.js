@@ -21,7 +21,6 @@ const TableRow = (props) => {
         <DivStyle>
             <TableCell cell={props.name} category={props.category}> </TableCell>
             <TableCell cell={props.value} category={props.category}> </TableCell>
-            <TableCell cell={props.situacao} category={props.category}> </TableCell>
         </DivStyle>
 
 

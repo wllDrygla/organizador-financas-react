@@ -90,7 +90,6 @@ const Resumo = (props) => {
 
   return (
     <DivPaiStyle>
-      <h1>Pendências mensais:</h1>
       {
         financa.map((item) => {
           if (formData.mes == item.mes && item.situacao == "pendente") {
@@ -122,9 +121,7 @@ const Resumo = (props) => {
       </DivStyle>
     </DivPaiStyle>
   )
-
 }
-
 
 
 export default Resumo;

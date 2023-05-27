@@ -5,49 +5,80 @@ import axios from "axios";
 
 const DivStyle = styled.div`
 text-align:center;
-display: flex;
+display: block;
 justify-content:space-evenly;
 max-width: 90%;
 
 `
+const ParagraphTitleStyle = styled.h1`
+font-family: 'Gelasio';
+font-size:35px;
+font-weight: bolder;
+width:90%;
+padding:15px;
+margin-left:5%;
+margin-bottom:1px;
+
+@media ( max-width: 768px ){
+    font-size:23px;
+}
+`
 
 const ParagraphRedStyle = styled.p`
 font-family: 'Gelasio';
+width:700px;
+
 font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
 border-radius:30px;
-margin-left:10%;
+margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
 background-color: rgba(240, 0, 0, 0.400);
+
+@media ( max-width: 768px ){
+    font-size:18px;
+}
 `
 
 const ParagraphBlueStyle = styled.p`
 font-family: 'Gelasio';
+width:700px;
+
 font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
 border-radius:30px;
-margin-left:10%;
+margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
 background-color: rgba(0, 0, 240, 0.400);
+
+@media ( max-width: 768px ){
+    font-size:18px;
+}
 `
 
 const ParagraphGreenStyle = styled.p`
 font-family: 'Gelasio';
+width:700px;
+
 font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
 border-radius:30px;
-margin-left:10%;
+margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
 background-color: rgba(0, 240, 0, 0.400);
+
+@media ( max-width: 768px ){
+    font-size:18px;
+}
 `
 const DivRedStyle = styled.div`
 text-align:center;
@@ -143,7 +174,7 @@ const TableMetas = (props) => {
     if (props.status === 'PENDENTE') {
         return (
             <DivRedStyle>
-                <h1>{status}</h1>
+                <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
@@ -173,7 +204,7 @@ const TableMetas = (props) => {
     if (props.status === 'FAZENDO') {
         return (
             <DivBlueStyle>
-                <h1>{status}</h1>
+                <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
@@ -204,7 +235,7 @@ const TableMetas = (props) => {
     if (props.status === 'FINALIZADO') {
         return (
             <DivGreenStyle>
-                <h1>{status}</h1>
+                <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {

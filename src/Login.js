@@ -6,11 +6,11 @@ import Table from "./components/Table";
 import TableMetas from "./components/TableMetas";
 
 export const UserContext = createContext();
-
 const BodyStyle = styled.div`
 margin: 1%;
 text-align:center;
 max-width: 100%;
+padding:0;
 
 `
 const DivStyle = styled.div`
@@ -19,17 +19,28 @@ border-radius:30px;
 text-align:center;
 border: 2px black solid;
 display: flex;
-margin:1%;
+margin:0;
+max-width: 100%;
 
 @media (max-width: 768px) {
   display: block;
-  margin:5%;
+  margin:3%;
 }
 `
+const CenterDiv = styled.div`
+text-align: center;
+max-width:35%;
+margin:1% ;
 
+@media (max-width: 768px) {
+  max-width: 100%;
+  
+}
+`
 const LeftDiv = styled.div`
 text-align: center;
-max-width:55%;
+max-width:35%;
+margin:1% ;
 
 @media (max-width: 768px) {
   max-width: 100%;
@@ -39,7 +50,9 @@ max-width:55%;
 
 const RightDiv = styled.div`
 text-align: center;
-max-width:45%;
+max-width:35%;
+margin:1% ;
+
 @media (max-width: 768px) {
   max-width: 100%;
 }
@@ -112,38 +125,46 @@ const Login = () => {
   return (
     <UserContext.Provider value={{ userLogged }}>
       <BodyStyle>
+
+        <form>
+          <label>
+            <TitleStyle>Olá, seja bem-vindo ao organizador de finanças do Will</TitleStyle>
+            <ParagraphStyle>Usuário</ParagraphStyle>
+            <InputStyle type="text" name="usuario" onChange={handleInputChange} />
+          </label>
+          <br />
+          <label>
+            <ParagraphStyle>Senha</ParagraphStyle>
+            <InputStyle type="password" name="senha" onChange={handleInputChange} />
+          </label>
+          <br />
+          <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
+        </form>
+        <TitleStyle>Aqui temos uma exemplo de funcionamento do site:</TitleStyle>
+
         <DivStyle>
-          {
-            
-            <LeftDiv>
-              <form>
-                <label>
-                  <TitleStyle>Olá, seja bem-vindo ao organizador de finanças do Will</TitleStyle>
-                  <ParagraphStyle>Usuário</ParagraphStyle>
-                  <InputStyle type="text" name="usuario" onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                  <ParagraphStyle>Senha</ParagraphStyle>
-                  <InputStyle type="password" name="senha" onChange={handleInputChange} />
-                </label>
-                <br />
-                <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
-              </form>
-              <TitleStyle>Aqui temos uma exemplo de funcionamento do site:</TitleStyle>
-              <Resumo mes={mesAtual} user={'teste'} />
-              <TitleStyle>'SISTEMA DE METAS ( em teste ):</TitleStyle>
-              <TableMetas user={'teste'} status='PENDENTE'></TableMetas>
+
+          <LeftDiv>
+            <TitleStyle>SISTEMA DE METAS ( em teste ):</TitleStyle>
+            <TableMetas user={'teste'} status='PENDENTE'></TableMetas>
             <TableMetas user={'teste'} status='FAZENDO'></TableMetas>
             <TableMetas user={'teste'} status='FINALIZADO'></TableMetas>
-            </LeftDiv>
+          </LeftDiv>
 
-          }
+
+          <CenterDiv>
+            <TitleStyle>PENDÊNCIAS MENSAIS:</TitleStyle>
+            <Resumo mes={mesAtual} user={'teste'} />
+          </CenterDiv>
+
+
           <RightDiv>
+            <TitleStyle>FINANÇAS MENSAIS:</TitleStyle>
             <Table user={'teste'} category="ganho" />
             <Table user={'teste'} category="gasto" />
             <Table user={'teste'} category="investimento" />
           </RightDiv>
+
 
         </DivStyle>
       </BodyStyle>
