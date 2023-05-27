@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import Resumo from "./Resumo"
 import Table from "./components/Table";
+import TableMetas from "./components/TableMetas";
 
 export const UserContext = createContext();
 
@@ -131,6 +132,10 @@ const Login = () => {
               </form>
               <TitleStyle>Aqui temos uma exemplo de funcionamento do site:</TitleStyle>
               <Resumo mes={mesAtual} user={'teste'} />
+              <TitleStyle>'SISTEMA DE METAS ( em teste ):</TitleStyle>
+              <TableMetas user={'teste'} status='PENDENTE'></TableMetas>
+            <TableMetas user={'teste'} status='FAZENDO'></TableMetas>
+            <TableMetas user={'teste'} status='FINALIZADO'></TableMetas>
             </LeftDiv>
 
           }

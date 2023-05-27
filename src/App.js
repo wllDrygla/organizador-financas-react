@@ -86,7 +86,7 @@ function App() {
             <LeftDiv>
               <TitleStyle>BEM-VINDO,  {userLogged}!</TitleStyle>
               <Resumo mes={mesAtual} user={userLogged} />
-              <TitleStyle>METAS:</TitleStyle>
+              <TitleStyle>'SISTEMA DE METAS ( em teste ):</TitleStyle>
               <TableMetas user={userLogged} status='PENDENTE'></TableMetas>
             <TableMetas user={userLogged} status='FAZENDO'></TableMetas>
             <TableMetas user={userLogged} status='FINALIZADO'></TableMetas>
