@@ -6,6 +6,7 @@ import Table from "../TableCategory/TableCategory";
 import TableMetas from "../Metas/TableMetas";
 import TitleContent from "../components/TitleContent";
 import StatementTable from "../Finance/StatementTable";
+import ParagraphContent from "../components/Paragraph";
 
 export const UserContext = createContext();
 const BodyStyle = styled.div`
@@ -141,37 +142,19 @@ const Login = () => {
           <br />
           <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
         </form>
-        <TitleStyle>Aqui temos uma exemplo de funcionamento do site:</TitleStyle>
-
+        <DivStyle>
+          <ParagraphContent content="Se você quiser testar o site, pode usar nosso usuário de teste"></ParagraphContent>
+        </DivStyle>
         <DivStyle>
 
-          <LeftDivStyle>
-            <TitleContent content={`SISTEMA DE METAS ( em teste ):`}></TitleContent>
-            <TableMetas user='teste' status='PENDENTE'></TableMetas>
-            <TableMetas user='teste' status='FAZENDO'></TableMetas>
-            <TableMetas user='teste' status='FINALIZADO'></TableMetas>
-          </LeftDivStyle>
-
-
-          <CenterDivStyle>
-            <TitleContent content={'EXTRATO MENSAL'}></TitleContent>
-            <StatementTable content="GANHOS: " category='ganho' month='Maio' user='teste'></StatementTable>
-            <StatementTable content="GASTOS: " category='gasto' month='Maio' user='teste'></StatementTable>
-            <StatementTable content="INVESTIDO: " category='investimento' month='Maio' user='teste'></StatementTable>
-            <TitleContent content={`PENDÊNCIAS MENSAIS:`}></TitleContent>
-            <Resumo month='Maio' user='teste' />
-          </CenterDivStyle>
-
-
-          <RightDivStyle>
-            <TitleContent content={`FINANÇAS MENSAIS:`}></TitleContent>
-            <Table user='teste' category='gasto' month="Maio"> </Table>
-            <Table user='teste' category='ganho' month="Maio"></Table>
-            <Table user='teste' category='investimento' month="Maio"></Table>
-          </RightDivStyle>
-
-
+          <ParagraphContent content="USUÁRIO: 'teste'"></ParagraphContent>
         </DivStyle>
+        <DivStyle>
+
+          <ParagraphContent content="SENHA: '1234'"></ParagraphContent>
+        </DivStyle>
+
+
       </BodyStyle>
     </UserContext.Provider>
   )

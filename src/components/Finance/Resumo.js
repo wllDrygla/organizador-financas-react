@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import TableRow from "../TableCategory/TableRowCategory";
+import TableRow from "../TableCategory/TableCategoryRow";
 import Total from "../components/Total";
 
 

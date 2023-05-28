@@ -33,7 +33,7 @@ border: 1px black solid;
 `
 
 
-const TableCell = (props) => {
+const TableCategoryCell = (props) => {
     if(props.category == 'gasto'){
         return (
             <RedCellStyle> {props.cell} </RedCellStyle>
@@ -47,4 +47,4 @@ const TableCell = (props) => {
 
 };
 
-export default TableCell;
+export default TableCategoryCell;

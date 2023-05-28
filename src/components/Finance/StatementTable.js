@@ -1,5 +1,6 @@
-import MonthStatement from "./Statement"
+import MonthStatementCategory from "./StatementTableCell"
 import styled from "styled-components";
+import ParagraphContent from "../components/Paragraph";
 
 const DivStyle = styled.div`
 display: flex;
@@ -21,12 +22,13 @@ const StatementTable = (props) => {
 
     return (
         <DivStyle>
-            <ParagraphStyle> {props.content} </ParagraphStyle>
-            <MonthStatement
+            <ParagraphContent content={props.content} ></ParagraphContent>
+            <MonthStatementCategory
                 category={props.category}
                 month={props.month}
                 user={props.user}
-            ></MonthStatement>
+            ></MonthStatementCategory>
+
         </DivStyle>
     )
 };
