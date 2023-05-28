@@ -40,7 +40,6 @@ const TableCategory = (props) => {
       contador = contador + 1;
       if (contador <= 1) {
         for (let i = 0; i < financasResultado.data.financa.length; i++) {
-          console.log('financasResultado', financasResultado)
 
           listaFinancas.push(financasResultado.data.financa[i]);
           setFinanca(listaFinancas)
