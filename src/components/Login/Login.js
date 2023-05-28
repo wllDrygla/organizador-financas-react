@@ -1,9 +1,11 @@
 import React, { useState, createContext } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import Resumo from "./Resumo"
-import Table from "./components/Table";
-import TableMetas from "./components/TableMetas";
+import Resumo from "../Finance/Resumo"
+import Table from "../TableCategory/TableCategory";
+import TableMetas from "../Metas/TableMetas";
+import TitleContent from "../components/TitleContent";
+import StatementTable from "../Finance/StatementTable";
 
 export const UserContext = createContext();
 const BodyStyle = styled.div`
@@ -14,7 +16,7 @@ padding:0;
 
 `
 const DivStyle = styled.div`
-background-color: rgba(0, 240, 228, 0.197);
+background-color: rgba(30, 30, 30, 0.050);
 border-radius:30px;
 text-align:center;
 border: 2px black solid;
@@ -27,7 +29,16 @@ max-width: 100%;
   margin:3%;
 }
 `
-const CenterDiv = styled.div`
+const CenterDivStyle = styled.div`
+text-align: center;
+max-width:900px;
+margin:1% ;
+
+@media (max-width: 768px) {
+  max-width: 100%;
+  
+}`
+const LeftDivStyle = styled.div`
 text-align: center;
 max-width:35%;
 margin:1% ;
@@ -37,18 +48,8 @@ margin:1% ;
   
 }
 `
-const LeftDiv = styled.div`
-text-align: center;
-max-width:35%;
-margin:1% ;
 
-@media (max-width: 768px) {
-  max-width: 100%;
-  
-}
-`
-
-const RightDiv = styled.div`
+const RightDivStyle = styled.div`
 text-align: center;
 max-width:35%;
 margin:1% ;
@@ -144,26 +145,30 @@ const Login = () => {
 
         <DivStyle>
 
-          <LeftDiv>
-            <TitleStyle>SISTEMA DE METAS ( em teste ):</TitleStyle>
-            <TableMetas user={'teste'} status='PENDENTE'></TableMetas>
-            <TableMetas user={'teste'} status='FAZENDO'></TableMetas>
-            <TableMetas user={'teste'} status='FINALIZADO'></TableMetas>
-          </LeftDiv>
+          <LeftDivStyle>
+            <TitleContent content={`SISTEMA DE METAS ( em teste ):`}></TitleContent>
+            <TableMetas user='teste' status='PENDENTE'></TableMetas>
+            <TableMetas user='teste' status='FAZENDO'></TableMetas>
+            <TableMetas user='teste' status='FINALIZADO'></TableMetas>
+          </LeftDivStyle>
 
 
-          <CenterDiv>
-            <TitleStyle>PENDÊNCIAS MENSAIS:</TitleStyle>
-            <Resumo mes={mesAtual} user={'teste'} />
-          </CenterDiv>
+          <CenterDivStyle>
+            <TitleContent content={'EXTRATO MENSAL'}></TitleContent>
+            <StatementTable content="GANHOS: " category='ganho' month='Maio' user='teste'></StatementTable>
+            <StatementTable content="GASTOS: " category='gasto' month='Maio' user='teste'></StatementTable>
+            <StatementTable content="INVESTIDO: " category='investimento' month='Maio' user='teste'></StatementTable>
+            <TitleContent content={`PENDÊNCIAS MENSAIS:`}></TitleContent>
+            <Resumo month='Maio' user='teste' />
+          </CenterDivStyle>
 
 
-          <RightDiv>
-            <TitleStyle>FINANÇAS MENSAIS:</TitleStyle>
-            <Table user={'teste'} category="ganho" />
-            <Table user={'teste'} category="gasto" />
-            <Table user={'teste'} category="investimento" />
-          </RightDiv>
+          <RightDivStyle>
+            <TitleContent content={`FINANÇAS MENSAIS:`}></TitleContent>
+            <Table user='teste' category='gasto' month="Maio"> </Table>
+            <Table user='teste' category='ganho' month="Maio"></Table>
+            <Table user='teste' category='investimento' month="Maio"></Table>
+          </RightDivStyle>
 
 
         </DivStyle>

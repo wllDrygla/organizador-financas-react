@@ -1,15 +1,18 @@
 import React, { useState, createContext } from "react";
-import './App.css';
-import Resumo from "./Resumo"
-import CadastroFinanca from './components/CadastroFinanca';
-import CadastroMeta from './components/CadastroMetas';
+import Resumo from "./components/Finance/Resumo"
+import CadastroFinanca from './components/Finance/CadastroFinanca';
+import CadastroMeta from './components/Metas/CadastroMetas';
 import styled from "styled-components";
-import Login from "./Login";
-import Table from "./components/Table";
-import TableMetas from "./components/TableMetas";
+import Login from "./components/Login/Login";
+import Table from "./components/TableCategory/TableCategory";
+import TableMetas from "./components/Metas/TableMetas";
+import TitleContent from "./components/components/TitleContent";
+import Button from "./components/components/Button";
+import CenterDiv from "./components/Div.js/CenterDiv";
+import LeftDiv from "./components/Div.js/LeftDiv";
+import RightDiv from "./components/Div.js/RightDiv";
 
 const UserContext = createContext();
-const mesAtual = 'Maio'
 const BodyStyle = styled.div`
 margin: 1%;
 text-align:center;
@@ -17,8 +20,22 @@ max-width: 100%;
 padding:0;
 
 `
+
+const SelectStyle = styled.select`
+text-align:center;
+margin: 10px;
+padding:10px;
+border: 3px black solid;
+border-radius:30px;
+font-size:30px;
+font-weight: bolder;
+`
+
+const OptionStyle = styled.option`
+font-size:20px;
+`
 const DivStyle = styled.div`
-background-color: rgba(0, 240, 228, 0.197);
+background-color: rgba(30, 30, 30, 0.050);
 border-radius:30px;
 text-align:center;
 border: 2px black solid;
@@ -31,101 +48,65 @@ max-width: 100%;
   margin:3%;
 }
 `
-const CenterDiv = styled.div`
-text-align: center;
-max-width:35%;
-margin:1% ;
 
-@media (max-width: 768px) {
-  max-width: 100%;
-  
-}
-`
-const LeftDiv = styled.div`
-text-align: center;
-max-width:35%;
-margin:1% ;
-
-@media (max-width: 768px) {
-  max-width: 100%;
-  
-}
-`
-
-const RightDiv = styled.div`
-text-align: center;
-max-width:35%;
-margin:1% ;
-
-@media (max-width: 768px) {
-  max-width: 100%;
-}
-`
-
-const TitleStyle = styled.h1`
-margin:5%;
-
-@media (max-width: 768px){
-  font-size: 20px;
-}
-`
-
-const ButtonStyle = styled.button`
-font-size: 35px;
-font-family: 'Gelasio';
-padding:0 10px;
-background-color:white;
-border-radius: 5px;
-margin:5px;
-`
 
 function App() {
-  const handleLogout = (event) => {
-    event.preventDefault();
-    sessionStorage.setItem("user", '');
-    sessionStorage.setItem("userLogged", '');
-    window.location.reload();
+  const handleSelectChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+
+    })
+    );
 
   };
 
+  const [formData, setFormData] = useState({
+    mesSelecionado: 'Maio'
+  });
+  const selectedMonth = formData.mesSelecionado
+
+
   const userLogged = sessionStorage.getItem("user");
   const isLoggedIn = sessionStorage.getItem("userLogged");
-
   return (
+
     <UserContext.Provider value={{ userLogged }}>
       {isLoggedIn == 'true' ? (
         <BodyStyle>
-          <TitleStyle>BEM-VINDO,  {userLogged}!</TitleStyle>
+          <TitleContent content={`BEM-VINDO, ${userLogged}`}></TitleContent>
+            <SelectStyle name="mesSelecionado" value={formData.mesSelecionado} onChange={handleSelectChange}>
+              <OptionStyle value='Março'>ESCOLHA O MÊS</OptionStyle>
+              <OptionStyle value="Janeiro">01 - JANEIRO</OptionStyle>
+              <OptionStyle value="Fevereiro">02 - FEVEREIRO</OptionStyle>
+              <OptionStyle value="Março">03 - MARÇO</OptionStyle>
+              <OptionStyle value="Abril">04 - ABRIL</OptionStyle>
+              <OptionStyle value="Maio">05 - MAIO</OptionStyle>
+              <OptionStyle value="Junho">06 - JUNHO</OptionStyle>
+              <OptionStyle value="Julho">07 - JULHO</OptionStyle>
+              <OptionStyle value="Agosto">08 - AGOSTO</OptionStyle>
+              <OptionStyle value="Setembro">09 - SETEMBRO</OptionStyle>
+              <OptionStyle value="Outubro">10 - OUTUBRO</OptionStyle>
+              <OptionStyle value="Novembro">11 - NOVEMBRO</OptionStyle>
+              <OptionStyle value="Dezembro">12 - DEZEMBRO</OptionStyle>
+            </SelectStyle>
 
           <DivStyle>
+        
 
-            <LeftDiv>
-              <TitleStyle>SISTEMA DE METAS ( em teste ):</TitleStyle>
-              <TableMetas user={userLogged} status='PENDENTE'></TableMetas>
-              <TableMetas user={userLogged} status='FAZENDO'></TableMetas>
-              <TableMetas user={userLogged} status='FINALIZADO'></TableMetas>
-            </LeftDiv>
+            <LeftDiv user={userLogged}></LeftDiv>
 
+            <CenterDiv user={userLogged} month={selectedMonth} ></CenterDiv>
 
-            <CenterDiv>
-              <TitleStyle>PENDÊNCIAS MENSAIS:</TitleStyle>
-              <Resumo mes={mesAtual} user={userLogged} />
-            </CenterDiv>
-
-
-            <RightDiv>
-              <TitleStyle>FINANÇAS MENSAIS:</TitleStyle>
-              <Table user={userLogged} category='gasto'></Table>
-              <Table user={userLogged} category='ganho'></Table>
-              <Table user={userLogged} category='investimento'></Table>
-            </RightDiv>
+           <RightDiv user={userLogged} month={selectedMonth}></RightDiv>
 
 
           </DivStyle>
 
           <CadastroFinanca user={userLogged} />
           <CadastroMeta user={userLogged}></CadastroMeta>
-          <ButtonStyle onClick={handleLogout}>SAIR</ButtonStyle>
+          <Button action='handleLogout'></Button>
 
         </BodyStyle>
       ) : (

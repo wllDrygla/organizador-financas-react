@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TableRow from "./TableRow";
+import TableRow from "../TableCategory/TableRowCategory";
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -7,7 +7,8 @@ const DivStyle = styled.div`
 text-align:center;
 display: block;
 justify-content:space-evenly;
-max-width: 90%;
+max-width: 100%;
+
 
 `
 const ParagraphTitleStyle = styled.h1`
@@ -36,7 +37,7 @@ border-radius:30px;
 margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
-background-color: rgba(240, 0, 0, 0.400);
+background-color: rgba(240, 0, 0, 0.100);
 
 @media ( max-width: 768px ){
     font-size:18px;
@@ -55,7 +56,7 @@ border-radius:30px;
 margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
-background-color: rgba(0, 0, 240, 0.400);
+background-color: rgba(0, 0, 240, 0.100);
 
 @media ( max-width: 768px ){
     font-size:18px;
@@ -74,7 +75,7 @@ border-radius:30px;
 margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
-background-color: rgba(0, 240, 0, 0.400);
+background-color: rgba(0, 240, 0, 0.100);
 
 @media ( max-width: 768px ){
     font-size:18px;
@@ -87,8 +88,10 @@ border-radius: 20px;
 margin:0px;
 padding:30px;
 background-color:white;
-background-color: rgba(240, 0, 0, 0.407);
-
+background-color: rgba(240, 0, 0, 0.207);
+overflow-y: scroll;
+overflow-x: hidden;
+height: 400px;
 margin:1%;
 @media (max-width: 768px) {
   margin: 5%;
@@ -101,8 +104,10 @@ border-radius: 20px;
 margin:0px;
 padding:30px;
 background-color:white;
-background-color: rgba(0, 0, 240, 0.307);
-
+background-color: rgba(0, 100, 255, 0.100);
+overflow-y: scroll;
+overflow-x: hidden;
+height: 400px;
 margin:1%;
 @media (max-width: 768px) {
   margin: 5%;
@@ -116,8 +121,10 @@ border-radius: 20px;
 margin:0px;
 padding:30px;
 background-color:white;
-background-color: rgba(0, 240, 0, 0.307);
-
+background-color: rgba(0, 240, 0, 0.100);
+overflow-y: scroll;
+overflow-x: hidden;
+height: 400px;
 margin:1%;
 @media (max-width: 768px) {
   margin: 5%;
