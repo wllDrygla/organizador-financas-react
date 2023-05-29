@@ -8,9 +8,9 @@ const MonthStatementCategory = (props) => {
   const baseURLtotalInvestimento = `https://api-will.herokuapp.com/api/total-category/${props.user}/${props.category}`
 
 
-  const [totalCategory, setTotalCategory] = React.useState(undefined);
-  const [total, setTotal] = React.useState(undefined);
-  const [totalInvestiment, setTotalInvestiment] = React.useState(undefined);
+  const [totalCategory, setTotalCategory] = React.useState('Carregando..');
+  const [total, setTotal] = React.useState('Carregando..');
+  const [totalInvestiment, setTotalInvestiment] = React.useState('Carregando..');
 
 
   React.useEffect(() => {
