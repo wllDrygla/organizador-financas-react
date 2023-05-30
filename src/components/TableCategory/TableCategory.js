@@ -54,7 +54,7 @@ const TableCategory = (props) => {
   if (!financa) return (<h1>Carregando....</h1>);
 
   return (
-    <DivPaiStyle>
+    <DivPaiStyle className="teste"> 
       <TitleContent content={`${categoria}s de ${props.month}`}></TitleContent>
 
 
@@ -74,7 +74,7 @@ const TableCategory = (props) => {
                   value={item.valor}
                   category={item.categoria}
                   situacao={item.situacao}
-                  id={item._id}>
+                  id={item._id} className="teste">
                 </TableCategoryRow>
               )
 

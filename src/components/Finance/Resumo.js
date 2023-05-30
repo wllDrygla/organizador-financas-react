@@ -74,7 +74,7 @@ const Resumo = (props) => {
   if (!financa) return (<h1>Carregando....</h1>);
 
   return (
-    <DivPaiStyle>
+    <DivPaiStyle className="teste">
 
       {
         financa.map((item) => {

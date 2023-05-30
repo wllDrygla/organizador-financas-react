@@ -110,7 +110,7 @@ const TableCategoryRow = (props) => {
 
   if( props.category === 'gasto'){
     return (
-        <div>
+        <div >
           <RedCellTextStyle  placeholder={props.name} name="nome"  value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem}/>
           <RedCellValueStyle  placeholder={props.value} name="valor"  value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
         </div>

@@ -180,7 +180,7 @@ const TableMetas = (props) => {
 
     if (props.status === 'PENDENTE') {
         return (
-            <DivRedStyle>
+            <DivRedStyle className="teste">
                 <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
@@ -210,7 +210,7 @@ const TableMetas = (props) => {
     };
     if (props.status === 'FAZENDO') {
         return (
-            <DivBlueStyle>
+            <DivBlueStyle className="teste">
                 <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
@@ -241,7 +241,7 @@ const TableMetas = (props) => {
 
     if (props.status === 'FINALIZADO') {
         return (
-            <DivGreenStyle>
+            <DivGreenStyle className="teste">
                 <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
