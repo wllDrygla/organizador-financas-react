@@ -150,15 +150,15 @@ background-color: white
 
 const TableMetas = (props) => {
     const [meta, setMeta] = React.useState([]);
-    const baseURLFinalizar = "https://api-will.herokuapp.com/api/metas/finalizar/"
-    const baseURLPendente = "https://api-will.herokuapp.com/api/metas/pendente/"
-    const baseURLFazendo = "https://api-will.herokuapp.com/api/metas/fazendo/"
+    const baseURLFinalizar = "https://api-finances-will.onrender.com/api/metas/finalizar/"
+    const baseURLPendente = "https://api-finances-will.onrender.com/api/metas/pendente/"
+    const baseURLFazendo = "https://api-finances-will.onrender.com/api/metas/fazendo/"
 
     const [formData, setFormData] = useState({
     });
     const status = props.status
     const usuario = props.user
-    const baseURL = "https://api-will.herokuapp.com/api/metas/" + usuario
+    const baseURL = "https://api-finances-will.onrender.com/api/metas/" + usuario
     var listaMetas = [
     ]
     var contador = 0

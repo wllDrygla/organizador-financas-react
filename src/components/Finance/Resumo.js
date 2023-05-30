@@ -50,8 +50,8 @@ const Resumo = (props) => {
     mes: 'Maio'
   });
   var usuario = props.user
-  const baseURL = "https://api-will.herokuapp.com/api/get-all-finances/" + usuario
-  const baseURLFinalizar = "https://api-will.herokuapp.com/api/finance-pay/"
+  const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
+  const baseURLFinalizar = "https://api-finances-will.onrender.com/api/finance-pay/"
 
   const [financa, setFinanca] = React.useState([]);
   var listaFinancasResumo = []

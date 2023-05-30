@@ -41,7 +41,7 @@ function CadastroMeta(props) {
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
-      const response = axios.post("https://api-will.herokuapp.com/api/metas/cadastro", formData)
+      const response = axios.post("https://api-finances-will.onrender.com/api/metas/cadastro", formData)
 
     alert('CADASTRADO')
     };

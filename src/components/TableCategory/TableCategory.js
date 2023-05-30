@@ -31,7 +31,7 @@ const TableCategory = (props) => {
 
   const categoria = props.category
   const usuario = props.user
-  const baseURL = "https://api-will.herokuapp.com/api/get-all-finances/" + usuario
+  const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
   let listaFinancas = [
   ]
   var contador = 0
