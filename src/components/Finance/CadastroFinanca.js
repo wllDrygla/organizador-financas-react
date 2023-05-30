@@ -55,7 +55,7 @@ function CadastroFinanca(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
       console.log('testeHandleSubmit')
-      const response = axios.post("https://api-will.herokuapp.com/api/cadastro", formData)
+      const response = axios.post("https://api-will.herokuapp.com/api/insert-finance", formData)
     
     alert('CADASTRADO')
     };

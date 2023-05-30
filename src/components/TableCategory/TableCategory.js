@@ -31,7 +31,7 @@ const TableCategory = (props) => {
 
   const categoria = props.category
   const usuario = props.user
-  const baseURL = "https://api-will.herokuapp.com/api/financa/" + usuario
+  const baseURL = "https://api-will.herokuapp.com/api/get-all-finances/" + usuario
   let listaFinancas = [
   ]
   var contador = 0
@@ -74,7 +74,7 @@ const TableCategory = (props) => {
                   value={item.valor}
                   category={item.categoria}
                   situacao={item.situacao}
-                  itemId={item._id}>
+                  id={item._id}>
                 </TableCategoryRow>
               )
 
@@ -94,7 +94,7 @@ const TableCategory = (props) => {
                 value={item.valor}
                 category={item.categoria}
                 situacao={item.situacao}
-                itemId={item._id}>
+                id={item._id}>
               </TableCategoryRow>
             )
           }
