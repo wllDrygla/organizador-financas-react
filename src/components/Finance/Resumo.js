@@ -47,7 +47,7 @@ background-color: white
 
 const Resumo = (props) => {
   const [formData, setFormData] = useState({
-    mes: 'Maio'
+    mes: 'Junho'
   });
   var usuario = props.user
   const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
