@@ -46,7 +46,7 @@ const TableCategory = (props) => {
       }
     });
 
-  }, []);
+  }, [props.month]);
 
   if (!financa) return (<h1>Carregando....</h1>);
 

@@ -47,9 +47,6 @@ background-color: white
 
 
 const Resumo = (props) => {
-  const [formData, setFormData] = useState({
-    mes: 'Junho'
-  });
   var usuario = props.user
   const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
   const baseURLFinalizar = "https://api-finances-will.onrender.com/api/finance-pay/"
@@ -79,7 +76,7 @@ const Resumo = (props) => {
 
       {
         financa.map((item) => {
-          if (formData.mes == item.mes && item.situacao == "pendente") {
+          if (props.month == item.mes && item.situacao == "pendente") {
             total_novo = item.valor;
             if (item.categoria == "gasto" || item.categoria == "investimento") {
               total = total_antigo - total_novo;
