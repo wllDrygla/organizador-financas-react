@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import TableRow from "../TableCategory/TableCategoryRow";
 import Total from "../components/Total";
+import Button from "../components/Button";
 
 
 const DivPaiStyle = styled.div`
@@ -88,14 +89,8 @@ const Resumo = (props) => {
             return (
 
               <DivStyleDetalhes>
-
                 <TableRow name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao}></TableRow>
-                <form method="post" action={baseURLFinalizar + item._id}>
-                  <InputStyle
-                    type="submit"
-                    value="FINALIZAR">
-                  </InputStyle>
-                </form>
+                <Button action='pay' link={baseURLFinalizar + item._id}></Button>
               </DivStyleDetalhes>
             )
           }

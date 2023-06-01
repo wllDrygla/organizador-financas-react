@@ -19,15 +19,21 @@ const Button = (props) => {
         window.location.reload();
     
       };
-      const [formData, setFormData] = useState({
-        usuario: '',
-        senha: ''
-      });
 
+      const pay = async (event) => {
+        event.preventDefault();
+          const response = axios.post(props.link)
+          window.location.reload();
+      };
 
       if(props.action === 'handleLogout'){
         return(
             <ButtonStyle onClick={handleLogout}>SAIR</ButtonStyle>
+        )
+      }
+      if(props.action === 'pay'){
+        return(
+            <ButtonStyle onClick={pay}>PAGO</ButtonStyle>
         )
       }
 

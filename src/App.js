@@ -32,7 +32,7 @@ const OptionStyle = styled.option`
 font-size:20px;
 `
 const DivStyle = styled.div`
-background-color: rgba(30, 30, 30, 0.050);
+background-color: rgba(0 , 100, 200, 0.20);
 border-radius:30px;
 text-align:center;
 border: 2px black solid;
