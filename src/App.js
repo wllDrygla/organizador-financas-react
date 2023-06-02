@@ -11,11 +11,12 @@ import RightDiv from "./components/Div.js/RightDiv";
 
 const UserContext = createContext();
 const BodyStyle = styled.div`
+font-family: 'Gelasio';
+
 margin: 1%;
 text-align:center;
 max-width: 100%;
 padding:0;
-
 `
 
 const SelectStyle = styled.select`
@@ -33,7 +34,7 @@ font-size:20px;
 `
 const DivStyle = styled.div`
 background-color: rgba(0 , 100, 200, 0.20);
-border-radius:30px;
+border-radius:5px;
 text-align:center;
 border: 2px black solid;
 display: flex;

@@ -59,7 +59,6 @@ border: 1px black solid;
 `
 
 const GreenCellValueStyle = styled.input`
-font-family: 'Gelasio';
 background-color: rgba(0, 240, 0, 0.107);
 width:15%;
 padding:10px;

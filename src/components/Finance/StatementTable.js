@@ -4,7 +4,7 @@ import ParagraphContent from "../components/Paragraph";
 
 const DivStyle = styled.div`
 display: flex;
-border-radius: 10px;
+border-radius: 5px;
 border: 2px black solid;
 justify-content: space-evenly;
 background-color: white;

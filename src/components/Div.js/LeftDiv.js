@@ -15,7 +15,7 @@ margin:1% ;
 const LeftDiv = (props) => {
     return (
         <LeftDivStyle>
-        <TitleContent content={`SISTEMA DE METAS ( em teste ):`}></TitleContent>
+        <TitleContent content={`SISTEMA DE METAS (em teste):`}></TitleContent>
 
         <TableMetas user={props.user} status='PENDENTE'></TableMetas>
         <TableMetas user={props.user} status='FAZENDO'></TableMetas>

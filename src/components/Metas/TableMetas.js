@@ -33,7 +33,7 @@ font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
-border-radius:30px;
+border-radius:5px;
 margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
@@ -47,12 +47,11 @@ background-color: rgba(240, 0, 0, 0.100);
 const ParagraphBlueStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
-
 font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
-border-radius:30px;
+border-radius:5px;
 margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
@@ -71,7 +70,7 @@ font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
-border-radius:30px;
+border-radius:5px;
 margin-left:5%;
 margin-bottom:1px;
 border:1px black double;
@@ -84,7 +83,7 @@ background-color: rgba(0, 240, 0, 0.100);
 const DivRedStyle = styled.div`
 text-align:center;
 border: 2px black solid;
-border-radius: 20px;
+border-radius: 5px;
 margin:0px;
 padding:30px;
 background-color:white;
@@ -100,7 +99,7 @@ margin:1%;
 const DivBlueStyle = styled.div`
 text-align:center;
 border: 2px black solid;
-border-radius: 20px;
+border-radius: 5px;
 margin:0px;
 padding:30px;
 background-color:white;
@@ -117,7 +116,7 @@ margin:1%;
 const DivGreenStyle = styled.div`
 text-align:center;
 border: 2px black solid;
-border-radius: 20px;
+border-radius: 5px;
 margin:0px;
 padding:30px;
 background-color:white;
