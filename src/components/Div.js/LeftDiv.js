@@ -9,7 +9,7 @@ width:35%;
 margin:1% ;
 
 @media (max-width: 768px) {
-  width: 100%;
+  width: 95%;
   max-width: 100%;
   
 }
