@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import TitleContent from "../components/TitleContent";
 import Resumo from "../Finance/Resumo";
-import StatementTable from "../Finance/StatementTable";
+import TableMetas from "../Metas/TableMetas";
 
 const CenterDivStyle = styled.div`
 text-align: center;
@@ -17,15 +17,15 @@ const CenterDiv = (props) => {
   return (
     <CenterDivStyle>
 
-      <TitleContent content={'EXTRATO MENSAL'}></TitleContent>
-      <StatementTable content="GANHOS: " category='ganho' month={props.month} user={props.user}></StatementTable>
-      <StatementTable content="GASTOS: " category='gasto' month={props.month} user={props.user}></StatementTable>
-      <StatementTable content="INVESTIMENTOS MENSAIS: " category='investimento' month={props.month} user={props.user}></StatementTable>
-      <StatementTable content="SALDO MENSAL: " category='total' month={props.month} user={props.user}></StatementTable>
-      <StatementTable content="TOTAL DE INVESTIMENTOS: " category='investimento' month='todos' user={props.user}></StatementTable>
 
       <TitleContent content={`PENDÊNCIAS MENSAIS:`}></TitleContent>
       <Resumo month={props.month} user={props.user} />
+
+      <TitleContent content={`SISTEMA DE METAS (em teste):`}></TitleContent>
+
+<TableMetas user={props.user} status='PENDENTE'></TableMetas>
+<TableMetas user={props.user} status='FAZENDO'></TableMetas>
+<TableMetas user={props.user} status='FINALIZADO'></TableMetas>
       
     </CenterDivStyle>
   )

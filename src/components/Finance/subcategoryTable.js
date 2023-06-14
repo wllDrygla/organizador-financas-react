@@ -1,6 +1,7 @@
 import MonthStatementCategory from "./StatementTableCell"
 import styled from "styled-components";
 import ParagraphContent from "../components/Paragraph";
+import DetailsTableCell from "./subcategoryTableCell";
 
 const DivStyle = styled.div`
 display: flex;
@@ -13,17 +14,18 @@ max-width: 100%;
 `
 
 
-const StatementTable = (props) => {
+const DetailsTable = (props) => {
 
 
     return (
         <DivStyle>
             <ParagraphContent content={props.content} ></ParagraphContent>
-            <MonthStatementCategory
+            <DetailsTableCell
                 category={props.category}
                 month={props.month}
                 user={props.user}
-            ></MonthStatementCategory>
+                subcategoria={props.subcategoria}
+            ></DetailsTableCell>
 
         </DivStyle>
     )
@@ -33,4 +35,4 @@ const StatementTable = (props) => {
 
 };
 
-export default StatementTable;
+export default DetailsTable;

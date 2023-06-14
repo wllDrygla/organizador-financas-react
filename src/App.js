@@ -12,11 +12,11 @@ import RightDiv from "./components/Div.js/RightDiv";
 const UserContext = createContext();
 const BodyStyle = styled.div`
 font-family: 'Gelasio';
-
 margin: 1%;
 text-align:center;
 max-width: 100%;
 padding:0;
+font-size:10px;
 `
 
 const SelectStyle = styled.select`
@@ -33,7 +33,7 @@ const OptionStyle = styled.option`
 font-size:20px;
 `
 const DivStyle = styled.div`
-background-color: rgba(0 , 100, 200, 0.20);
+background-color: rgba(200 , 200, 50, 0.050);
 border-radius:5px;
 text-align:center;
 border: 2px black solid;
@@ -91,7 +91,7 @@ function App() {
           </SelectStyle>
 
           <DivStyle>
-            <LeftDiv user={userLogged}></LeftDiv>
+            <LeftDiv user={userLogged} month={selectedMonth}></LeftDiv>
             <CenterDiv user={userLogged} month={selectedMonth} ></CenterDiv>
             <RightDiv user={userLogged} month={selectedMonth}></RightDiv>
           </DivStyle>

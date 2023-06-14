@@ -27,24 +27,6 @@ const DivStyleDetalhes = styled.div`
 margin-bottom: 3%;
 `
 
-const InputStyle = styled.input`
-margin:4px;
-font-size:20px;
-border-radius: 5px;
-text-align: center;
-padding:3px;
-max-width: 250px;
-font-weight:bolder;
-border: 2px red solid;
-background-color: white
-@media (max-width: 768px){
-  font-size: 13px;
-  border: 2px blue solid;
-  margin:5%;
-
-}
-`
-
 
 const Resumo = (props) => {
   var usuario = props.user
