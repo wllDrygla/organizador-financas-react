@@ -5,7 +5,7 @@ import TableMetas from "../Metas/TableMetas";
 
 const CenterDivStyle = styled.div`
 text-align: center;
-max-width:900px;
+width:30%;
 margin:1% ;
 
 @media (max-width: 768px) {

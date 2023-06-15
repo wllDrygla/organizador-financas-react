@@ -7,7 +7,7 @@ import CadastroMeta from "../Metas/CadastroMetas";
 
 const LeftDivStyle = styled.div`
 text-align: center;
-width:35%;
+width:30%;
 margin:1% ;
 
 @media (max-width: 768px) {

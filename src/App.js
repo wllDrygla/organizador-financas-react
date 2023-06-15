@@ -39,7 +39,7 @@ text-align:center;
 border: 2px black solid;
 display: flex;
 margin:0;
-max-width: 100%;
+width: 100%;
 
 @media (max-width: 768px) {
   display: block;
