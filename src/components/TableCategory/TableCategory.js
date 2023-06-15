@@ -9,7 +9,7 @@ import TableCategoryRow from "./TableCategoryRow";
 
 const DivPaiStyle = styled.div`
 text-align:center;
-border: 2px black solid;
+border:1px gray double;
 border-radius: 5px;
 margin:0px;
 padding:30px;

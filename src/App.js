@@ -23,7 +23,7 @@ const SelectStyle = styled.select`
 text-align:center;
 margin: 10px;
 padding:10px;
-border: 3px black solid;
+border:1px gray double;
 border-radius:30px;
 font-size: 20px;
 font-weight: bolder;
@@ -36,7 +36,7 @@ const DivStyle = styled.div`
 background-color: rgba(200 , 200, 50, 0.050);
 border-radius:5px;
 text-align:center;
-border: 2px black solid;
+border:1px gray double;
 display: flex;
 margin:0;
 width: 100%;

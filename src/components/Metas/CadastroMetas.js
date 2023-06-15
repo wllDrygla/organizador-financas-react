@@ -5,9 +5,10 @@ import styled from "styled-components";
 const DivStyle = styled.div`
 text-align:center;
 border-radius: 30px;
-border: 3px black solid;
+border:1px gray double;
 margin: 20px;
 font-size: 15px;
+background-color:white;
 `
 const FormStyle = styled.form`
 margin:5px;
@@ -23,6 +24,7 @@ margin:10px;
 `
 const InputStyle = styled.input`
 height:30px;
+border:1px gray double;
 border-radius:10px;
 margin:10px;
 font-weight: bolder;
@@ -33,6 +35,7 @@ width: 80%;
 const SelectStyle = styled.select`
 text-align:center;
 border-radius:10px;
+border:1px gray double;
 height:30px;
 font-weight: bolder;
 font-size: 15px;

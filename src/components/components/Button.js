@@ -5,6 +5,7 @@ import React, { useState, createContext } from "react";
 const ButtonStyle = styled.button`
 font-size: 18px;
 font-family: 'Gelasio';
+border:1px gray double;
 padding:0 10px;
 background-color:white;
 border-radius: 5px;

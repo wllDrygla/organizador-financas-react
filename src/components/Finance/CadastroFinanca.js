@@ -5,9 +5,11 @@ import styled from "styled-components";
 const DivStyle = styled.div`
 text-align:center;
 border-radius: 30px;
-border: 3px black solid;
+border:1px gray double;
 margin: 20px;
 font-size: 15px;
+background-color:white;
+
 `
 const FormStyle = styled.form`
 margin:5px;
@@ -29,9 +31,13 @@ font-weight: bolder;
 font-size: 15px;
 text-align:center;
 width: 80%;
+border:1px gray double;
+
 `
 const SelectStyle = styled.select`
 text-align:center;
+border:1px gray double;
+
 border-radius:10px;
 height:30px;
 font-weight: bolder;

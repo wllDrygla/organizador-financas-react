@@ -10,7 +10,6 @@ display: block;
 justify-content:space-evenly;
 max-width: 100%;
 
-
 `
 const ParagraphTitleStyle = styled.h1`
 font-family: 'Gelasio';
@@ -37,8 +36,8 @@ padding:15px;
 border-radius:5px;
 margin-left:5%;
 margin-bottom:1px;
-border:1px black double;
-background-color: rgba(240, 0, 0, 0.100);
+border:1px gray double;
+background-color: rgba(255, 0, 50, 0.200);
 
 @media ( max-width: 768px ){
     font-size:18px;
@@ -55,8 +54,8 @@ padding:15px;
 border-radius:5px;
 margin-left:5%;
 margin-bottom:1px;
-border:1px black double;
-background-color: rgba(0, 0, 240, 0.100);
+border:1px gray double;
+background-color: rgba(0, 200, 255, 0.200);
 
 @media ( max-width: 768px ){
     font-size:18px;
@@ -66,7 +65,6 @@ background-color: rgba(0, 0, 240, 0.100);
 const ParagraphGreenStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
-
 font-size:25px;
 font-weight: bolder;
 width:90%;
@@ -74,77 +72,25 @@ padding:15px;
 border-radius:5px;
 margin-left:5%;
 margin-bottom:1px;
-border:1px black double;
-background-color: rgba(0, 240, 0, 0.100);
-
+border:1px gray double;
+background-color: rgba(0, 255, 100, 0.300);
 @media ( max-width: 768px ){
     font-size:18px;
 }
 `
-const DivRedStyle = styled.div`
+const NewDivStyle = styled.div`
 text-align:center;
-border: 2px black solid;
+border:1px gray double;
 border-radius: 5px;
 margin:0px;
 padding:30px;
 background-color:white;
-background-color: rgba(240, 0, 0, 0.207);
 overflow-y: scroll;
 overflow-x: hidden;
 height: 400px;
 margin:1%;
 @media (max-width: 768px) {
   margin: 5%;
-}
-`
-const DivBlueStyle = styled.div`
-text-align:center;
-border: 2px black solid;
-border-radius: 5px;
-margin:0px;
-padding:30px;
-background-color:white;
-background-color: rgba(0, 100, 255, 0.100);
-overflow-y: scroll;
-overflow-x: hidden;
-height: 400px;
-margin:1%;
-@media (max-width: 768px) {
-  margin: 5%;
-}
-`
-
-const DivGreenStyle = styled.div`
-text-align:center;
-border: 2px black solid;
-border-radius: 5px;
-margin:0px;
-padding:30px;
-background-color:white;
-background-color: rgba(0, 240, 0, 0.100);
-overflow-y: scroll;
-overflow-x: hidden;
-height: 400px;
-margin:1%;
-@media (max-width: 768px) {
-  margin: 5%;
-}
-`
-const InputStyle = styled.input`
-margin:4px;
-font-size:20px;
-border-radius: 5px;
-text-align: center;
-padding:3px;
-max-width: 250px;
-font-weight:bolder;
-border: 2px red solid;
-background-color: white
-@media (max-width: 768px){
-  font-size: 13px;
-  border: 2px blue solid;
-  margin:5%;
-
 }
 `
 
@@ -181,7 +127,7 @@ const TableMetas = (props) => {
 
     if (props.status === 'PENDENTE') {
         return (
-            <DivRedStyle className="teste">
+            <NewDivStyle className="teste">
                 <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
@@ -200,12 +146,12 @@ const TableMetas = (props) => {
                         }
                     }
                     )}
-            </DivRedStyle>
+            </NewDivStyle>
         )
     };
     if (props.status === 'FAZENDO') {
         return (
-            <DivBlueStyle className="teste">
+            <NewDivStyle className="teste">
                 <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
@@ -224,13 +170,13 @@ const TableMetas = (props) => {
                         }
                     }
                     )}
-            </DivBlueStyle>
+            </NewDivStyle>
         )
     };
 
     if (props.status === 'FINALIZADO') {
         return (
-            <DivGreenStyle className="teste">
+            <NewDivStyle className="teste">
                 <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
                 {
                     meta.map((item) => {
@@ -250,7 +196,7 @@ const TableMetas = (props) => {
                         }
                     }
                     )}
-            </DivGreenStyle>
+            </NewDivStyle>
         )
     };
 
