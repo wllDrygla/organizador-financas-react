@@ -3,12 +3,16 @@ import axios from "axios";
 import React, { useState, createContext } from "react";
 
 const ButtonStyle = styled.button`
-font-size: 25px;
+font-size: 18px;
 font-family: 'Gelasio';
 padding:0 10px;
 background-color:white;
 border-radius: 5px;
 margin:5px;
+@media (max-width: 768px) {
+  font-size: 10px;
+}
+
 `
 
 const Button = (props) => {
