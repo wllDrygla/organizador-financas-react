@@ -2,6 +2,8 @@ import styled from "styled-components";
 import TitleContent from "../components/TitleContent";
 import StatementTable from "../Finance/StatementTable";
 import DetailsTable from "../Finance/subcategoryTable";
+import CadastroFinanca from "../Finance/CadastroFinanca";
+import CadastroMeta from "../Metas/CadastroMetas";
 
 const LeftDivStyle = styled.div`
 text-align: center;
@@ -34,6 +36,9 @@ const LeftDiv = (props) => {
       <TitleContent content={'EXTRATO DE INVESTIMENTOS'}></TitleContent>
       <StatementTable content="INVESTIMENTOS MENSAIS: " category='investimento' month={props.month} user={props.user}></StatementTable>
       <StatementTable content="TOTAL DE INVESTIMENTOS: " category='investimento' month='todos' user={props.user}></StatementTable>
+
+      <CadastroFinanca user={props.user} />
+      <CadastroMeta user={props.user}></CadastroMeta>
 
       </LeftDivStyle>
     )

@@ -25,7 +25,7 @@ margin: 10px;
 padding:10px;
 border: 3px black solid;
 border-radius:30px;
-font-size:30px;
+font-size: 20px;
 font-weight: bolder;
 `
 
@@ -65,7 +65,6 @@ function App() {
   });
   const selectedMonth = formData.mesSelecionado
 
-
   const userLogged = sessionStorage.getItem("user");
   const isLoggedIn = sessionStorage.getItem("userLogged");
   return (
@@ -73,9 +72,10 @@ function App() {
     <UserContext.Provider value={{ userLogged }}>
       {isLoggedIn == 'true' ? (
         <BodyStyle>
-          <TitleContent content={`BEM-VINDO, ${userLogged}`}></TitleContent>
+          <TitleContent type='title' content={`BEM-VINDO, ${userLogged}`}></TitleContent>
+
           <SelectStyle name="mesSelecionado" value={formData.mesSelecionado} onChange={handleSelectChange}>
-            <OptionStyle value='Março'>ESCOLHA O MÊS</OptionStyle>
+            <OptionStyle value='Junho'>ESCOLHA O MÊS</OptionStyle>
             <OptionStyle value="Janeiro">01 - JANEIRO</OptionStyle>
             <OptionStyle value="Fevereiro">02 - FEVEREIRO</OptionStyle>
             <OptionStyle value="Março">03 - MARÇO</OptionStyle>
@@ -96,9 +96,7 @@ function App() {
             <RightDiv user={userLogged} month={selectedMonth}></RightDiv>
           </DivStyle>
 
-          <CadastroFinanca user={userLogged} />
-          <CadastroMeta user={userLogged}></CadastroMeta>
-          <Button action='handleLogout'></Button>
+          <Button value='SAIR' action='handleLogout'></Button>
 
         </BodyStyle>
       ) : (

@@ -12,10 +12,7 @@ max-width: 100%;
 
 `
 
-
 const StatementTable = (props) => {
-
-
     return (
         <DivStyle>
             <ParagraphContent content={props.content} ></ParagraphContent>

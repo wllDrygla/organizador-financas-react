@@ -2,6 +2,7 @@ import styled from "styled-components";
 import TableRow from "../TableCategory/TableCategoryRow";
 import React, { useState } from "react";
 import axios from "axios";
+import Button from "../components/Button";
 
 const DivStyle = styled.div`
 text-align:center;
@@ -152,6 +153,7 @@ const TableMetas = (props) => {
     const baseURLFinalizar = "https://api-finances-will.onrender.com/api/metas/finalizar/"
     const baseURLPendente = "https://api-finances-will.onrender.com/api/metas/pendente/"
     const baseURLFazendo = "https://api-finances-will.onrender.com/api/metas/fazendo/"
+    const baseURLDelete = "https://api-finances-will.onrender.com/task/"
 
     const [formData, setFormData] = useState({
     });
@@ -187,18 +189,12 @@ const TableMetas = (props) => {
                             return (
                                 <DivStyle>
                                     <ParagraphRedStyle> {item.name} </ParagraphRedStyle>
-                                    <form method="post" action={baseURLFazendo + item._id}>
-                                        <InputStyle
-                                            type="submit"
-                                            value="FAZENDO">
-                                        </InputStyle>
-                                    </form>
-                                    <form method="post" action={baseURLFinalizar + item._id}>
-                                        <InputStyle
-                                            type="submit"
-                                            value="FINALIZAR">
-                                        </InputStyle>
-                                    </form>
+
+                                    <Button action='postRequest' value="FAZENDO" link={baseURLFazendo + item._id}></Button>
+
+                                    <Button action='postRequest' value="FEITO" link={baseURLFinalizar + item._id}></Button>
+                                    
+                                    <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
                                 </DivStyle>
                             )
                         }
@@ -217,18 +213,12 @@ const TableMetas = (props) => {
                             return (
                                 <DivStyle>
                                     <ParagraphBlueStyle> {item.name} </ParagraphBlueStyle>
-                                    <form method="post" action={baseURLPendente + item._id}>
-                                        <InputStyle
-                                            type="submit"
-                                            value="PENDENTE">
-                                        </InputStyle>
-                                    </form>
-                                    <form method="post" action={baseURLFinalizar + item._id}>
-                                        <InputStyle
-                                            type="submit"
-                                            value="FINALIZAR">
-                                        </InputStyle>
-                                    </form>
+
+                                    <Button action='postRequest' value="A FAZER" link={baseURLPendente + item._id}></Button>
+
+                                    <Button action='postRequest' value="FEITO" link={baseURLFinalizar + item._id}></Button>
+
+                                    <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
                                 </DivStyle>
                             )
                         }
@@ -248,18 +238,13 @@ const TableMetas = (props) => {
                             return (
                                 <DivStyle>
                                     <ParagraphGreenStyle> {item.name} </ParagraphGreenStyle>
-                                    <form method="post" action={baseURLPendente + item._id}>
-                                        <InputStyle
-                                            type="submit"
-                                            value="PENDENTE">
-                                        </InputStyle>
-                                    </form>
-                                    <form method="post" action={baseURLFazendo + item._id}>
-                                        <InputStyle
-                                            type="submit"
-                                            value="FAZENDO">
-                                        </InputStyle>
-                                    </form>
+
+                                    <Button action='postRequest' value="A FAZER" link={baseURLPendente + item._id}></Button>
+
+                                    <Button action='postRequest' value="FAZENDO" link={baseURLFazendo + item._id}></Button>
+
+                                    <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
+
                                 </DivStyle>
                             )
                         }

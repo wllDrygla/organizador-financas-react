@@ -3,14 +3,12 @@ import axios from 'axios';
 import styled from "styled-components";
 
 const DivStyle = styled.div`
-background-color: rgba(0, 240, 228, 0.297);
 text-align:center;
 border-radius: 30px;
 border: 3px black solid;
+margin: 20px;
+font-size: 15px;
 `
-
-
-
 const FormStyle = styled.form`
 margin:5px;
 display:flex;
@@ -20,18 +18,25 @@ text-align:center
 
 `
 const LabelStyle = styled.label`
-margin:10px
+margin:10px;
+
 `
 const InputStyle = styled.input`
-height:20px;
+height:30px;
 border-radius:10px;
 margin:10px;
-text-align:center
+font-weight: bolder;
+font-size: 15px;
+text-align:center;
+width: 80%;
 `
 const SelectStyle = styled.select`
 text-align:center;
 border-radius:10px;
-height:20px
+height:30px;
+font-weight: bolder;
+font-size: 15px;
+width: 50%;
 `
 
 
@@ -54,10 +59,10 @@ function CadastroFinanca(props) {
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
-      console.log('testeHandleSubmit')
-      const response = axios.post("https://api-finances-will.onrender.com/api/insert-finance", formData)
+      const response = await axios.post("https://api-finances-will.onrender.com/api/insert-finance", formData)
     
-    alert('CADASTRADO')
+    alert(`${response.data} CADASTRADO COM SUCESSO`);
+    window.location.reload();
     };
 
 
@@ -68,7 +73,7 @@ function CadastroFinanca(props) {
       [name]: value,
     }));
     console.log(formData)
-  };
+  }; 
 
   const handleSelectChange = (event) => {
     const { name, value } = event.target;
@@ -123,6 +128,14 @@ function CadastroFinanca(props) {
       </LabelStyle>
 
       <LabelStyle>
+      <SelectStyle name="situacao" value={formData.situacao}  onChange={handleSelectChange}>
+        <option value="">SITUAÇÃO</option>
+        <option value="pendente"> PENDENTE</option>
+        <option value="finalizado">FINALIZADO</option>
+        </SelectStyle>
+      </LabelStyle>
+
+      <LabelStyle>
       <SelectStyle name="periodo" value={formData.periodo}  onChange={handleSelectChange}>
       
         <option value="">TIPO</option>
@@ -133,8 +146,6 @@ function CadastroFinanca(props) {
         </SelectStyle>
       </LabelStyle>
 
-
-      
       <LabelStyle>
         {formData.periodo === "unico" &&(
       <SelectStyle name="mes" value={formData.mes} onChange={handleSelectChange}>
@@ -197,18 +208,6 @@ function CadastroFinanca(props) {
           </SelectStyle>  
         )}
       </LabelStyle>
-
-
-
-      <LabelStyle>
-      <SelectStyle name="situacao" value={formData.situacao}  onChange={handleSelectChange}>
-        <option value="">SITUAÇÃO</option>
-        <option value="pendente"> PENDENTE</option>
-        <option value="finalizado">FINALIZADO</option>
-        </SelectStyle>
-      </LabelStyle>
-
-
 
       <LabelStyle>
       <button type="submit">CADASTRAR</button>

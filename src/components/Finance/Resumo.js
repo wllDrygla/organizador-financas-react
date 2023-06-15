@@ -32,6 +32,7 @@ const Resumo = (props) => {
   var usuario = props.user
   const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
   const baseURLFinalizar = "https://api-finances-will.onrender.com/api/finance-pay/"
+  const baseURLDelete = "https://api-finances-will.onrender.com/finance/"
 
   const [financa, setFinanca] = React.useState([]);
   var listaFinancasResumo = []
@@ -69,7 +70,8 @@ const Resumo = (props) => {
 
               <DivStyleDetalhes>
                 <TableRow name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao}></TableRow>
-                <Button action='pay' link={baseURLFinalizar + item._id}></Button>
+                <Button action='postRequest'  value='PAGAR' link={baseURLFinalizar + item._id}></Button>
+                <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
               </DivStyleDetalhes>
             )
           }
