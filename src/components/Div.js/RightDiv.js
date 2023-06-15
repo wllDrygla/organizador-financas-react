@@ -5,7 +5,7 @@ import TableCategory from "../TableCategory/TableCategory";
 
 const RightDivStyle = styled.div`
 text-align: center;
-max-width:30%;
+width:30%;
 margin:1% ;
 
 @media (max-width: 768px) {

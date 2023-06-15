@@ -9,7 +9,7 @@ border-radius: 5px;
 border: 2px black solid;
 justify-content: space-evenly;
 background-color: white;
-max-width: 100%;
+width: 100%;
 
 `
 
