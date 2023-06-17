@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import axios from "axios";
 import Total from "../components/Total";
-import TitleContent from "../components/TitleContent";
+import TextContent from "../components/TextContent";
 import TableBody from "./TableBody";
 import TableHeaderRow from "./TableHeader";
 
@@ -52,7 +52,7 @@ const TableCategory = (props) => {
 
   return (
     <DivPaiStyle className="teste"> 
-      <TitleContent content={`${categoria}s de ${props.month}`}></TitleContent>
+      <TextContent content={`${categoria}s de ${props.month}`}></TextContent>
       <TableHeaderRow name='NOME' value='VALOR'></TableHeaderRow>
 
 

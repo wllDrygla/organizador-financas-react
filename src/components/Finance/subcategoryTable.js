@@ -1,6 +1,6 @@
 import MonthStatementCategory from "./StatementTableCell"
 import styled from "styled-components";
-import ParagraphContent from "../components/Paragraph";
+import TextContent from "../components/TextContent";
 import DetailsTableCell from "./subcategoryTableCell";
 
 const DivStyle = styled.div`
@@ -19,7 +19,7 @@ const DetailsTable = (props) => {
 
     return (
         <DivStyle>
-            <ParagraphContent content={props.content} ></ParagraphContent>
+            <TextContent type='paragraph' content={props.content} ></TextContent>
             <DetailsTableCell
                 category={props.category}
                 month={props.month}

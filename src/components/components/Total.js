@@ -9,7 +9,7 @@ justify-content:space-evenly;
 max-width: 90%;
 `
 
-const ParagraphStyleTotal = styled.h2`
+const TextContentStyleTotal = styled.h2`
 font-family: 'Gelasio';
 width:500px;
 padding:10px;
@@ -32,11 +32,11 @@ font-size:40px;
 const Total = (props) => {
     return (
         <DivStyle>
-<ParagraphStyleTotal>      </ParagraphStyleTotal>
-<ParagraphStyleTotal>  TOTAL:   </ParagraphStyleTotal>
-<ParagraphStyleTotal>     </ParagraphStyleTotal>
+<TextContentStyleTotal>      </TextContentStyleTotal>
+<TextContentStyleTotal>  TOTAL:   </TextContentStyleTotal>
+<TextContentStyleTotal>     </TextContentStyleTotal>
 
-<ParagraphStyleTotal>R${props.total},00 </ParagraphStyleTotal>
+<TextContentStyleTotal>R${props.total},00 </TextContentStyleTotal>
 </DivStyle>
     )
 }

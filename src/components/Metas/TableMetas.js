@@ -18,7 +18,7 @@ font-size:25px;
 }
 
 `
-const ParagraphTitleStyle = styled.h1`
+const TextContentTitleStyle = styled.h1`
 font-family: 'Gelasio';
 font-weight: bolder;
 width:90%;
@@ -31,7 +31,7 @@ margin-bottom:1px;
 }
 `
 
-const ParagraphRedStyle = styled.p`
+const TextContentRedStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
 
@@ -51,7 +51,7 @@ background-color: rgba(255, 0, 50, 0.200);
 }
 `
 
-const ParagraphBlueStyle = styled.p`
+const TextContentBlueStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
 font-weight: bolder;
@@ -70,7 +70,7 @@ background-color: rgba(0, 200, 255, 0.200);
 }
 `
 
-const ParagraphGreenStyle = styled.p`
+const TextContentGreenStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
 font-weight: bolder;
@@ -138,13 +138,13 @@ const TableMetas = (props) => {
     if (props.status === 'PENDENTE') {
         return (
             <NewDivStyle className="teste">
-                <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
+                <TextContentTitleStyle>{status}</TextContentTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
                             return (
                                 <DivStyle>
-                                    <ParagraphRedStyle> {item.name} </ParagraphRedStyle>
+                                    <TextContentRedStyle> {item.name} </TextContentRedStyle>
 
                                     <Button action='postRequest' value=">" link={baseURLFazendo + item._id}></Button>
 
@@ -162,13 +162,13 @@ const TableMetas = (props) => {
     if (props.status === 'FAZENDO') {
         return (
             <NewDivStyle className="teste">
-                <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
+                <TextContentTitleStyle>{status}</TextContentTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
                             return (
                                 <DivStyle>
-                                    <ParagraphBlueStyle> {item.name} </ParagraphBlueStyle>
+                                    <TextContentBlueStyle> {item.name} </TextContentBlueStyle>
 
                                     <Button action='postRequest' value="<" link={baseURLPendente + item._id}></Button>
 
@@ -187,13 +187,13 @@ const TableMetas = (props) => {
     if (props.status === 'FINALIZADO') {
         return (
             <NewDivStyle className="teste">
-                <ParagraphTitleStyle>{status}</ParagraphTitleStyle>
+                <TextContentTitleStyle>{status}</TextContentTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
                             return (
                                 <DivStyle>
-                                    <ParagraphGreenStyle> {item.name} </ParagraphGreenStyle>
+                                    <TextContentGreenStyle> {item.name} </TextContentGreenStyle>
 
                                     <Button action='postRequest' value="<<" link={baseURLPendente + item._id}></Button>
 

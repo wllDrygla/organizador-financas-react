@@ -1,9 +1,7 @@
 import React, { useState, createContext } from "react";
-import CadastroFinanca from './components/Finance/CadastroFinanca';
-import CadastroMeta from './components/Metas/CadastroMetas';
 import styled from "styled-components";
 import Login from "./components/Login/Login";
-import TitleContent from "./components/components/TitleContent";
+import TextContent from "./components/components/TextContent";
 import Button from "./components/components/Button";
 import { CenterDivFinance, CenterDivTask } from "./components/Div.js/CenterDiv";
 import { LeftDivFinance,  LeftDivTask } from "./components/Div.js/LeftDiv";
@@ -72,7 +70,7 @@ function App() {
     <UserContext.Provider value={{ userLogged }}>
       {isLoggedIn == 'true' ? (
         <BodyStyle>
-          <TitleContent type='title' content={`BEM-VINDO, ${userLogged}`}></TitleContent>
+          <TextContent type='title' content={`BEM-VINDO, ${userLogged}`}></TextContent>
 
           <SelectStyle name="mesSelecionado" value={formData.mesSelecionado} onChange={handleSelectChange}>
             <OptionStyle value='Junho'>ESCOLHA O MÊS</OptionStyle>
@@ -95,7 +93,7 @@ function App() {
             <CenterDivFinance user={userLogged} month={selectedMonth}></CenterDivFinance>
             <RightDivFinance user={userLogged} month={selectedMonth} ></RightDivFinance>
           </DivStyle>
-          <TitleContent type='title' content='SISTEMA DE METAS'></TitleContent>
+          <TextContent type='title' content='SISTEMA DE METAS'></TextContent>
 
           <DivStyle>
             <LeftDivTask user={userLogged} month={selectedMonth} ></LeftDivTask>

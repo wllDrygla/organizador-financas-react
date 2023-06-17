@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TitleContent from "../components/TitleContent";
+import TextContent from "../components/TextContent";
 import Table from "../FinanceTable/Table";
 import TableMetas from "../Metas/TableMetas";
 
@@ -23,7 +23,7 @@ margin:1% ;
 const RightDivFinance = (props) => {
   return (
     <RightDivStyle>
-      <TitleContent content={`FINANÇAS MENSAIS:`}></TitleContent>
+      <TextContent content={`FINANÇAS MENSAIS:`}></TextContent>
       <Table user={props.user} category='gasto' month={props.month}> </Table>
       <Table user={props.user} category='ganho' month={props.month}></Table>
       <Table user={props.user} category='investimento' month={props.month}></Table>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ParagraphContent from "../components/Paragraph";
+import TextContent from "../components/TextContent";
 
 const MonthStatementCategory = (props) => {
   const baseURLcategory = `https://api-finances-will.onrender.com/api/category-month-total/${props.category}/${props.month}/${props.user}`
@@ -37,24 +37,19 @@ const MonthStatementCategory = (props) => {
   }, [props.month]);
 
   if (props.category === 'total') {
-    if (total > 0) {
       return (
-        <ParagraphContent content={total} color='green'></ParagraphContent>
+        <TextContent type='paragraph' content={total} ></TextContent>
       )
-    } else {
-      return (
-        <ParagraphContent content={total} color='red'></ParagraphContent>
-      )
-    }
-
-  } if (props.category === 'investimento' && props.month === 'todos') {
+    
+  } 
+  if (props.category === 'investimento' && props.month === 'todos') {
     return (
-      <ParagraphContent content={totalInvestiment} color='green'></ParagraphContent>
+      <TextContent type='paragraph' content={totalInvestiment} ></TextContent>
     )
   }
   else {
     return (
-      <ParagraphContent content={totalCategory}></ParagraphContent>
+      <TextContent type='paragraph' content={totalCategory}></TextContent>
     )
   }
 

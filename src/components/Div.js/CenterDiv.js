@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TitleContent from "../components/TitleContent";
+import TextContent from "../components/TextContent";
 import Resumo from "../Finance/Resumo";
 import TableMetas from "../Metas/TableMetas";
 import CadastroMeta from "../Metas/CadastroMetas";
@@ -31,7 +31,7 @@ margin:1% ;
 const CenterDivFinance = (props) => {
   return (
     <CenterDivStyle>
-      <TitleContent content={`PENDÊNCIAS MENSAIS:`}></TitleContent>
+      <TextContent content={`PENDÊNCIAS MENSAIS:`}></TextContent>
       <Resumo month={props.month} user={props.user} />
       <CadastroFinanca user={props.user} />
 

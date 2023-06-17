@@ -5,8 +5,13 @@ margin:5%;
 font-size: 50px;
 
 @media (max-width: 768px){
-  font-size: 40px;
+  font-size: 20px;
 }
+`
+
+const ParagraphStyle = styled.p`
+margin:5%;
+font-size: 20px;
 `
 
 const SubTïtleStyle = styled.h3`
@@ -27,10 +32,14 @@ font-size:30px;
 }
 `
 
-const TitleContent = (props) => {
+const TextContent = (props) => {
   if(props.type === 'title'){
     return(
       <TitleStyle>{props.content}</TitleStyle>
+    )
+  }if(props.type === 'paragraph'){
+    return(
+      <ParagraphStyle>{props.content}</ParagraphStyle>
     )
   }else{
     return(
@@ -39,4 +48,4 @@ const TitleContent = (props) => {
   };  
 };
 
-export default TitleContent;
+export default TextContent;

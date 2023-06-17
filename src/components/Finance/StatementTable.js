@@ -1,6 +1,6 @@
 import MonthStatementCategory from "./StatementTableCell"
 import styled from "styled-components";
-import ParagraphContent from "../components/Paragraph";
+import TextContent from "../components/TextContent";
 
 const DivStyle = styled.div`
 display: flex;
@@ -15,7 +15,7 @@ width: 100%;
 const StatementTable = (props) => {
     return (
         <DivStyle>
-            <ParagraphContent content={props.content} ></ParagraphContent>
+            <TextContent content={props.content} type='paragraph'></TextContent>
             <MonthStatementCategory
                 category={props.category}
                 month={props.month}

@@ -1,29 +1,23 @@
 import React, { useState, createContext } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import ParagraphContent from "../components/Paragraph";
+import TextContent from "../components/TextContent";
 
 export const UserContext = createContext();
 const BodyStyle = styled.div`
-margin: 1%;
+background-color: rgba(200 , 200, 50, 0.050);
+border-radius:5px;
 text-align:center;
-max-width: 100%;
-padding:0;
-
+border:1px gray double;
+margin:5%;
+width: 90%;
 `
-const DivStyle = styled.div`
-background-color: rgba(30, 30, 30, 0.050);
-border-radius:30px;
-text-align:center;
-border: 2px black solid;
-display: flex;
-margin:0;
-max-width: 100%;
 
-@media (max-width: 768px) {
-  display: block;
-  margin:3%;
-}
+const DivStyle = styled.div`
+background-color: white;
+margin:10%;
+border: 2px gray double;
+padding: 5%;
 `
 
 const InputStyle = styled.input`
@@ -34,18 +28,6 @@ text-align: center;
 padding:3px;
 max-width: 250px;
 
-`
-
-const TitleStyle = styled.h1`
-margin:5%;
-
-@media (max-width: 768px){
-  font-size: 20px;
-}
-`
-
-const ParagraphStyle = styled.h2`
-margin:4px;
 `
 
 const ButtonStyle = styled.button`
@@ -93,33 +75,37 @@ const Login = () => {
   return (
     <UserContext.Provider value={{ userLogged }}>
       <BodyStyle>
-
-        <form>
-          <label>
-            <TitleStyle>Olá, seja bem-vindo ao organizador de finanças do Will</TitleStyle>
-            <ParagraphStyle>Usuário</ParagraphStyle>
-            <InputStyle type="text" name="usuario" onChange={handleInputChange} />
-          </label>
-          <br />
-          <label>
-            <ParagraphStyle>Senha</ParagraphStyle>
-            <InputStyle type="password" name="senha" onChange={handleInputChange} />
-          </label>
-          <br />
-          <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
-        </form>
         <DivStyle>
-          <ParagraphContent content="Se você quiser testar o site, pode usar nosso usuário de teste"></ParagraphContent>
+          <form>
+            <label>
+              <TextContent type='title' content='SEJA BEM-VINDO ORGANIZADOR DE FINANÇAS DO WiLL'></TextContent>
+              <TextContent content='USUÁRIO:'></TextContent>
+
+              <InputStyle type="text" name="usuario" onChange={handleInputChange} />
+            </label>
+            <br />
+            <label>
+              <TextContent content='SENHA:'></TextContent>
+              <InputStyle type="password" name="senha" onChange={handleInputChange} />
+            </label>
+            <br />
+            <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
+          </form>
         </DivStyle>
         <DivStyle>
 
-          <ParagraphContent content="USUÁRIO: 'teste'"></ParagraphContent>
+          <TextContent type='title' content="Se você quiser testar o site, pode usar nosso usuário de teste"></TextContent>
+
+          <TextContent content="USUÁRIO: 'teste'"></TextContent>
+
+          <TextContent content="SENHA: '1234'"></TextContent>
         </DivStyle>
         <DivStyle>
+          <TextContent type='title' content="EXEMPLO DO SITE: "></TextContent>
 
-          <ParagraphContent content="SENHA: '1234'"></ParagraphContent>
+          <img src="exemplo.jpeg" width='90%'></img>
+
         </DivStyle>
-
 
       </BodyStyle>
     </UserContext.Provider>

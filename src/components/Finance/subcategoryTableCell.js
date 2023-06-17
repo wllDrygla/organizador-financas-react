@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ParagraphContent from "../components/Paragraph";
+import TextContent from "../components/TextContent";
 
 const DetailsTableCell = (props) => {
   const baseURLTotalSubcategory = `https://api-finances-will.onrender.com/api/subcategory-month-total/${props.category}/${props.month}/${props.user}/${props.subcategoria}`
@@ -17,7 +17,7 @@ const DetailsTableCell = (props) => {
 
   
     return (
-      <ParagraphContent content={totalSubCategory}></ParagraphContent>
+      <TextContent type='paragraph' content={totalSubCategory}></TextContent>
     )
   
 
