@@ -2,6 +2,8 @@ import styled from "styled-components";
 import TitleContent from "../components/TitleContent";
 import Resumo from "../Finance/Resumo";
 import TableMetas from "../Metas/TableMetas";
+import CadastroMeta from "../Metas/CadastroMetas";
+import CadastroFinanca from "../Finance/CadastroFinanca";
 
 const CenterDivStyle = styled.div`
 text-align: center;
@@ -13,22 +15,26 @@ margin:1% ;
   
 }`
 
-const CenterDiv = (props) => {
+const CenterDivFinance = (props) => {
   return (
     <CenterDivStyle>
-
-
       <TitleContent content={`PENDÊNCIAS MENSAIS:`}></TitleContent>
       <Resumo month={props.month} user={props.user} />
+      <CadastroFinanca user={props.user} />
 
-      <TitleContent content={`SISTEMA DE METAS (em teste):`}></TitleContent>
-
-<TableMetas user={props.user} status='PENDENTE'></TableMetas>
-<TableMetas user={props.user} status='FAZENDO'></TableMetas>
-<TableMetas user={props.user} status='FINALIZADO'></TableMetas>
-      
     </CenterDivStyle>
   )
 };
 
-export default CenterDiv;
+const CenterDivTask = (props) => {
+  return (
+    <CenterDivStyle>
+
+<TableMetas user={props.user} status='FAZENDO'></TableMetas>
+<CadastroMeta user={props.user}></CadastroMeta>
+
+    </CenterDivStyle>
+  )
+};
+
+export {CenterDivFinance, CenterDivTask};

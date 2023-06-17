@@ -9,7 +9,8 @@ border:1px gray double;
 padding:0 10px;
 background-color:white;
 border-radius: 5px;
-margin:5px;
+padding:10px;
+width:9%;
 @media (max-width: 768px) {
   font-size: 10px;
 }
@@ -26,6 +27,7 @@ const Button = (props) => {
 
   const postRequest = async (event) => {
     event.preventDefault();
+    console.log('props.link', props.link)
     const response = await axios.post(props.link);
     alert(`${response.data}`);
     window.location.reload();

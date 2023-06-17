@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import TableRow from "../TableCategory/TableCategoryRow";
+import TableBodyRow from "../TableCategory/TableCategoryRow";
 import Total from "../components/Total";
-import Button from "../components/Button";
+import TableHeadRow from "../TableCategory/TableHeadRow";
 
 
 const DivPaiStyle = styled.div`
@@ -24,15 +24,13 @@ height:500px;
 
 
 const DivStyleDetalhes = styled.div`
-margin-bottom: 3%;
 `
 
 
 const Resumo = (props) => {
   var usuario = props.user
   const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
-  const baseURLFinalizar = "https://api-finances-will.onrender.com/api/finance-pay/"
-  const baseURLDelete = "https://api-finances-will.onrender.com/finance/"
+
 
   const [financa, setFinanca] = React.useState([]);
   var listaFinancasResumo = []
@@ -56,6 +54,7 @@ const Resumo = (props) => {
 
   return (
     <DivPaiStyle className="teste">
+      <TableHeadRow name='NOME' value='VALOR' ></TableHeadRow>
 
       {
         financa.map((item) => {
@@ -69,9 +68,7 @@ const Resumo = (props) => {
             return (
 
               <DivStyleDetalhes>
-                <TableRow name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao}></TableRow>
-                <Button action='postRequest'  value='PAGAR' link={baseURLFinalizar + item._id}></Button>
-                <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
+                <TableBodyRow name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao} id={item._id}></TableBodyRow>
               </DivStyleDetalhes>
             )
           }

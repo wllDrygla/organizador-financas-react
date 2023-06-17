@@ -4,6 +4,7 @@ import StatementTable from "../Finance/StatementTable";
 import DetailsTable from "../Finance/subcategoryTable";
 import CadastroFinanca from "../Finance/CadastroFinanca";
 import CadastroMeta from "../Metas/CadastroMetas";
+import TableMetas from "../Metas/TableMetas";
 
 const LeftDivStyle = styled.div`
 text-align: center;
@@ -16,9 +17,9 @@ margin:1% ;
   
 }
 `
-const LeftDiv = (props) => {
-    return (
-        <LeftDivStyle>
+const LeftDivFinance = (props) => {
+  return (
+    <LeftDivStyle>
 
       <TitleContent content={'EXTRATO MENSAL'}></TitleContent>
       <StatementTable content="SALDO: " category='total' month={props.month} user={props.user}></StatementTable>
@@ -37,11 +38,16 @@ const LeftDiv = (props) => {
       <StatementTable content="INVESTIMENTOS MENSAIS: " category='investimento' month={props.month} user={props.user}></StatementTable>
       <StatementTable content="TOTAL DE INVESTIMENTOS: " category='investimento' month='todos' user={props.user}></StatementTable>
 
-      <CadastroFinanca user={props.user} />
-      <CadastroMeta user={props.user}></CadastroMeta>
 
-      </LeftDivStyle>
-    )
+    </LeftDivStyle>
+  )
 };
 
-export default LeftDiv;
+const LeftDivTask = (props) => {
+  return (
+    <LeftDivStyle>
+      <TableMetas user={props.user} status='PENDENTE'></TableMetas>
+    </LeftDivStyle>
+  )
+};
+export { LeftDivFinance, LeftDivTask };

@@ -87,7 +87,7 @@ padding:30px;
 background-color:white;
 overflow-y: scroll;
 overflow-x: hidden;
-height: 400px;
+height: 600px;
 margin:1%;
 @media (max-width: 768px) {
   margin: 5%;
@@ -136,11 +136,11 @@ const TableMetas = (props) => {
                                 <DivStyle>
                                     <ParagraphRedStyle> {item.name} </ParagraphRedStyle>
 
-                                    <Button action='postRequest' value="FAZENDO" link={baseURLFazendo + item._id}></Button>
+                                    <Button action='postRequest' value=">" link={baseURLFazendo + item._id}></Button>
 
-                                    <Button action='postRequest' value="FEITO" link={baseURLFinalizar + item._id}></Button>
+                                    <Button action='postRequest' value=">>" link={baseURLFinalizar + item._id}></Button>
                                     
-                                    <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
+                                    <Button action='deleteRequest' value="X" link={baseURLDelete + item._id}></Button>
                                 </DivStyle>
                             )
                         }
@@ -160,11 +160,11 @@ const TableMetas = (props) => {
                                 <DivStyle>
                                     <ParagraphBlueStyle> {item.name} </ParagraphBlueStyle>
 
-                                    <Button action='postRequest' value="A FAZER" link={baseURLPendente + item._id}></Button>
+                                    <Button action='postRequest' value="<" link={baseURLPendente + item._id}></Button>
 
-                                    <Button action='postRequest' value="FEITO" link={baseURLFinalizar + item._id}></Button>
+                                    <Button action='postRequest' value=">" link={baseURLFinalizar + item._id}></Button>
 
-                                    <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
+                                    <Button action='deleteRequest' value="X" link={baseURLDelete + item._id}></Button>
                                 </DivStyle>
                             )
                         }
@@ -185,11 +185,11 @@ const TableMetas = (props) => {
                                 <DivStyle>
                                     <ParagraphGreenStyle> {item.name} </ParagraphGreenStyle>
 
-                                    <Button action='postRequest' value="A FAZER" link={baseURLPendente + item._id}></Button>
+                                    <Button action='postRequest' value="<<" link={baseURLPendente + item._id}></Button>
 
-                                    <Button action='postRequest' value="FAZENDO" link={baseURLFazendo + item._id}></Button>
+                                    <Button action='postRequest' value="<" link={baseURLFazendo + item._id}></Button>
 
-                                    <Button action='deleteRequest' value="DELETAR" link={baseURLDelete + item._id}></Button>
+                                    <Button action='deleteRequest' value="X" link={baseURLDelete + item._id}></Button>
 
                                 </DivStyle>
                             )

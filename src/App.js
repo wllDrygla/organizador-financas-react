@@ -5,9 +5,9 @@ import styled from "styled-components";
 import Login from "./components/Login/Login";
 import TitleContent from "./components/components/TitleContent";
 import Button from "./components/components/Button";
-import CenterDiv from "./components/Div.js/CenterDiv";
-import LeftDiv from "./components/Div.js/LeftDiv";
-import RightDiv from "./components/Div.js/RightDiv";
+import { CenterDivFinance, CenterDivTask } from "./components/Div.js/CenterDiv";
+import { LeftDivFinance,  LeftDivTask } from "./components/Div.js/LeftDiv";
+import { RightDivFinance,  RightDivTask } from "./components/Div.js/RightDiv";
 
 const UserContext = createContext();
 const BodyStyle = styled.div`
@@ -91,11 +91,17 @@ function App() {
           </SelectStyle>
 
           <DivStyle>
-            <LeftDiv user={userLogged} month={selectedMonth}></LeftDiv>
-            <CenterDiv user={userLogged} month={selectedMonth} ></CenterDiv>
-            <RightDiv user={userLogged} month={selectedMonth}></RightDiv>
+            <LeftDivFinance user={userLogged} month={selectedMonth} ></LeftDivFinance>
+            <CenterDivFinance user={userLogged} month={selectedMonth}></CenterDivFinance>
+            <RightDivFinance user={userLogged} month={selectedMonth} ></RightDivFinance>
           </DivStyle>
+          <TitleContent type='title' content='SISTEMA DE METAS'></TitleContent>
 
+          <DivStyle>
+            <LeftDivTask user={userLogged} month={selectedMonth} ></LeftDivTask>
+            <CenterDivTask user={userLogged} month={selectedMonth} ></CenterDivTask>
+            <RightDivTask user={userLogged} month={selectedMonth} ></RightDivTask>
+          </DivStyle>
           <Button value='SAIR' action='handleLogout'></Button>
 
         </BodyStyle>

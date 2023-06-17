@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import Total from "../components/Total";
 import TitleContent from "../components/TitleContent";
-import TableCategoryRow from "./TableCategoryRow";
+import TableBodyRow from "./TableCategoryRow";
+import TableHeadRow from "./TableHeadRow";
 
 
 const DivPaiStyle = styled.div`
@@ -53,6 +54,7 @@ const TableCategory = (props) => {
   return (
     <DivPaiStyle className="teste"> 
       <TitleContent content={`${categoria}s de ${props.month}`}></TitleContent>
+      <TableHeadRow name='NOME' value='VALOR'></TableHeadRow>
 
 
       {
@@ -66,13 +68,13 @@ const TableCategory = (props) => {
               total_antigo = total;
 
               return (
-                <TableCategoryRow
+                <TableBodyRow
                   name={item.nome}
                   value={item.valor}
                   category={item.categoria}
                   situacao={item.situacao}
                   id={item._id} className="teste">
-                </TableCategoryRow>
+                </TableBodyRow>
               )
 
 
@@ -86,13 +88,13 @@ const TableCategory = (props) => {
             total = total_antigo + total_novo;
             total_antigo = total;
             return (
-              <TableCategoryRow
+              <TableBodyRow
                 name={item.nome}
                 value={item.valor}
                 category={item.categoria}
                 situacao={item.situacao}
                 id={item._id}>
-              </TableCategoryRow>
+              </TableBodyRow>
             )
           }
         }
