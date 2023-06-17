@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import styled from "styled-components";
 
 
@@ -7,7 +6,6 @@ const CellTextStyle = styled.input`
 font-family: 'Gelasio';
 background-color: rgba(0, 0, 0, 0.017);
 width:35%;
-border-radius:3px;
 padding:10px;
 text-align:center;
 &::placeholder {
@@ -16,17 +14,30 @@ text-align:center;
 font-weight:bolder;
 font-size: 20px;
 border: 1px black solid;
+@media (max-width: 1920px){
+  width:35%;
+  font-size:17px;
 
+};
+@media (max-width: 1680px){
+  width:30%;
+};
+@media (max-width: 1440px){
+  font-size:13px;
+
+};
+@media (max-width: 1280px) {
+  font-size: 12px;
+}
 @media (max-width: 768px){
-    font-size: 13px;
-    width:30%;
+  font-size: 13px;
+  width:30%;
 }
 `
 const TestCellTextStyle = styled.input`
 font-family: 'Gelasio';
 background-color: rgba(0, 0, 0, 0.017);
-width:15%;
-border-radius:3px;
+width: 80px;
 padding:10px;
 text-align:center;
 &::placeholder {
@@ -36,15 +47,30 @@ font-weight:bolder;
 font-size: 20px;
 border: 1px black solid;
 
-@media (max-width: 768px){
-    font-size: 13px;
-    width:12%;
+@media (max-width: 1920px){
+  font-size:17px;
+  width:80px;
+};
+
+@media (max-width: 1440px){
+  font-size:13px;
+  width:80px;
+};
+@media (max-width: 1280px) {
+  font-size: 12px;
+  width:40px;
+
 }
+@media (max-width: 768px){
+  font-size: 13px;
+  width:17%;
+}
+
 `
 
 
 
-const TableHeadRow = (props) => {
+const TableHeaderRow = (props) => {
   const baseURLStatusChange = `https://api-finances-will.onrender.com/api/finance/${props.situacao}/`
   const baseURLDelete = "https://api-finances-will.onrender.com/finance/"
   const item = useState({
@@ -74,4 +100,4 @@ const TableHeadRow = (props) => {
   };
   
 
-export default TableHeadRow;
+export default TableHeaderRow;

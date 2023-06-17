@@ -43,7 +43,7 @@ width: 100%;
 
 @media (max-width: 768px) {
   display: block;
-  margin:3%;
+  margin:0%;
 }
 `
 

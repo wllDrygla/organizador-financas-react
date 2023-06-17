@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import TableBodyRow from "../TableCategory/TableCategoryRow";
+import TableBody from "../FinanceTable/TableBody";
 import Total from "../components/Total";
-import TableHeadRow from "../TableCategory/TableHeadRow";
+import TableHeader from "../FinanceTable/TableHeader";
 
 
 const DivPaiStyle = styled.div`
@@ -54,7 +54,7 @@ const Resumo = (props) => {
 
   return (
     <DivPaiStyle className="teste">
-      <TableHeadRow name='NOME' value='VALOR' ></TableHeadRow>
+      <TableHeader name='NOME' value='VALOR' ></TableHeader>
 
       {
         financa.map((item) => {
@@ -68,7 +68,7 @@ const Resumo = (props) => {
             return (
 
               <DivStyleDetalhes>
-                <TableBodyRow name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao} id={item._id}></TableBodyRow>
+                <TableBody name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao} id={item._id}></TableBody>
               </DivStyleDetalhes>
             )
           }

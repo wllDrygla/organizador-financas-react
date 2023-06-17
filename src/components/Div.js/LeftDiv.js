@@ -2,20 +2,33 @@ import styled from "styled-components";
 import TitleContent from "../components/TitleContent";
 import StatementTable from "../Finance/StatementTable";
 import DetailsTable from "../Finance/subcategoryTable";
-import CadastroFinanca from "../Finance/CadastroFinanca";
-import CadastroMeta from "../Metas/CadastroMetas";
 import TableMetas from "../Metas/TableMetas";
 
 const LeftDivStyle = styled.div`
 text-align: center;
 width:30%;
-margin:1% ;
-
+margin:1%;
+@media (min-width: 1920px) {
+  width: 25%;
+  max-width: 100%;
+  font-size: 10px;
+}
+@media (max-width: 1440px) {
+  width: 25%;
+  max-width: 100%;
+  font-size: 10px;
+}
+@media (max-width: 1280px) {
+  width: 25%;
+  max-width: 100%;
+  
+}
 @media (max-width: 768px) {
   width: 95%;
   max-width: 100%;
   
 }
+
 `
 const LeftDivFinance = (props) => {
   return (

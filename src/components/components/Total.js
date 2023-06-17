@@ -15,9 +15,15 @@ width:500px;
 padding:10px;
 color:red;
 font-size:40px;
-
+@media (max-width: 1920px){
+  font-size: 35px;
+}
+@media (max-width: 1680px){
+  font-size: 30px;
+}
 @media (max-width: 768px){
   font-size: 18px;
+
 }
 
 `

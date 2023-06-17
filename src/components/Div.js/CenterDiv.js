@@ -10,6 +10,19 @@ text-align: center;
 width:30%;
 margin:1% ;
 
+@media (min-width: 1920px) {
+  width: 35%;
+  max-width: 100%;
+}
+@media (min-width: 1680px) {
+  width: 35%;
+  max-width: 100%;
+}
+  
+@media (min-width: 1280px) {
+  width: 40%;
+  margin:0%
+}
 @media (max-width: 768px) {
   width: 100%;
   

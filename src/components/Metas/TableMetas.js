@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import TableRow from "../TableCategory/TableCategoryRow";
 import React, { useState } from "react";
 import axios from "axios";
 import Button from "../components/Button";
@@ -9,11 +8,18 @@ text-align:center;
 display: block;
 justify-content:space-evenly;
 max-width: 100%;
+font-size:25px;
+@media (max-width: 1920px){
+    font-size:20px;
+}
+
+@media (max-width: 1440px){
+    font-size:15px;
+}
 
 `
 const ParagraphTitleStyle = styled.h1`
 font-family: 'Gelasio';
-font-size:35px;
 font-weight: bolder;
 width:90%;
 padding:15px;
@@ -29,7 +35,6 @@ const ParagraphRedStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
 
-font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
@@ -38,7 +43,9 @@ margin-left:5%;
 margin-bottom:1px;
 border:1px gray double;
 background-color: rgba(255, 0, 50, 0.200);
-
+@media ( min-width: 1920px ){
+    font-size:18px;
+}
 @media ( max-width: 768px ){
     font-size:18px;
 }
@@ -47,7 +54,6 @@ background-color: rgba(255, 0, 50, 0.200);
 const ParagraphBlueStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
-font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
@@ -56,7 +62,9 @@ margin-left:5%;
 margin-bottom:1px;
 border:1px gray double;
 background-color: rgba(0, 200, 255, 0.200);
-
+@media ( min-width: 1920px ){
+    font-size:18px;
+}
 @media ( max-width: 768px ){
     font-size:18px;
 }
@@ -65,7 +73,6 @@ background-color: rgba(0, 200, 255, 0.200);
 const ParagraphGreenStyle = styled.p`
 font-family: 'Gelasio';
 width:700px;
-font-size:25px;
 font-weight: bolder;
 width:90%;
 padding:15px;
@@ -74,6 +81,9 @@ margin-left:5%;
 margin-bottom:1px;
 border:1px gray double;
 background-color: rgba(0, 255, 100, 0.300);
+@media ( min-width: 1920px ){
+    font-size:18px;
+}
 @media ( max-width: 768px ){
     font-size:18px;
 }

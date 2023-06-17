@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import TableRow from "./TableCategoryRow";
 import React, { useState } from "react";
 import axios from "axios";
 import Total from "../components/Total";
 import TitleContent from "../components/TitleContent";
-import TableBodyRow from "./TableCategoryRow";
-import TableHeadRow from "./TableHeadRow";
+import TableBody from "./TableBody";
+import TableHeaderRow from "./TableHeader";
 
 
 const DivPaiStyle = styled.div`
@@ -54,7 +53,7 @@ const TableCategory = (props) => {
   return (
     <DivPaiStyle className="teste"> 
       <TitleContent content={`${categoria}s de ${props.month}`}></TitleContent>
-      <TableHeadRow name='NOME' value='VALOR'></TableHeadRow>
+      <TableHeaderRow name='NOME' value='VALOR'></TableHeaderRow>
 
 
       {
@@ -68,13 +67,13 @@ const TableCategory = (props) => {
               total_antigo = total;
 
               return (
-                <TableBodyRow
+                <TableBody
                   name={item.nome}
                   value={item.valor}
                   category={item.categoria}
                   situacao={item.situacao}
                   id={item._id} className="teste">
-                </TableBodyRow>
+                </TableBody>
               )
 
 
@@ -88,13 +87,13 @@ const TableCategory = (props) => {
             total = total_antigo + total_novo;
             total_antigo = total;
             return (
-              <TableBodyRow
+              <TableBody
                 name={item.nome}
                 value={item.valor}
                 category={item.categoria}
                 situacao={item.situacao}
                 id={item._id}>
-              </TableBodyRow>
+              </TableBody>
             )
           }
         }

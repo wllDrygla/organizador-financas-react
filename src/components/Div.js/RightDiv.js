@@ -1,14 +1,20 @@
 import styled from "styled-components";
 import TitleContent from "../components/TitleContent";
-import Table from "../TableCategory/TableCategory";
-import TableCategory from "../TableCategory/TableCategory";
+import Table from "../FinanceTable/Table";
 import TableMetas from "../Metas/TableMetas";
 
 const RightDivStyle = styled.div`
 text-align: center;
 width:30%;
 margin:1% ;
-
+@media (min-width: 1920px) {
+  width: 35%;
+  max-width: 100%;
+}
+@media (min-width: 1280px) {
+  width: 35%;
+  max-width: 100%;
+}
 @media (max-width: 768px) {
   width: 100%;
 }
@@ -18,9 +24,9 @@ const RightDivFinance = (props) => {
   return (
     <RightDivStyle>
       <TitleContent content={`FINANÇAS MENSAIS:`}></TitleContent>
-      <TableCategory user={props.user} category='gasto' month={props.month}> </TableCategory>
-      <TableCategory user={props.user} category='ganho' month={props.month}></TableCategory>
-      <TableCategory user={props.user} category='investimento' month={props.month}></TableCategory>
+      <Table user={props.user} category='gasto' month={props.month}> </Table>
+      <Table user={props.user} category='ganho' month={props.month}></Table>
+      <Table user={props.user} category='investimento' month={props.month}></Table>
     </RightDivStyle>
   )
 };

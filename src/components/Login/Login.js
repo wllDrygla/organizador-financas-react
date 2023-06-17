@@ -1,11 +1,6 @@
 import React, { useState, createContext } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import Resumo from "../Finance/Resumo"
-import Table from "../TableCategory/TableCategory";
-import TableMetas from "../Metas/TableMetas";
-import TitleContent from "../components/TitleContent";
-import StatementTable from "../Finance/StatementTable";
 import ParagraphContent from "../components/Paragraph";
 
 export const UserContext = createContext();
@@ -30,35 +25,7 @@ max-width: 100%;
   margin:3%;
 }
 `
-const CenterDivStyle = styled.div`
-text-align: center;
-max-width:900px;
-margin:1% ;
 
-@media (max-width: 768px) {
-  max-width: 100%;
-  
-}`
-const LeftDivStyle = styled.div`
-text-align: center;
-max-width:35%;
-margin:1% ;
-
-@media (max-width: 768px) {
-  max-width: 100%;
-  
-}
-`
-
-const RightDivStyle = styled.div`
-text-align: center;
-max-width:35%;
-margin:1% ;
-
-@media (max-width: 768px) {
-  max-width: 100%;
-}
-`
 const InputStyle = styled.input`
 margin:4px;
 font-size:20px;
@@ -93,7 +60,6 @@ margin:5px;
 
 
 const Login = () => {
-  const mesAtual = 'Maio'
   const [formData, setFormData] = useState({
     usuario: '',
     senha: ''
