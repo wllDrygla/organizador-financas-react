@@ -47,25 +47,25 @@ width: 50%;
 
 
 
-function CadastroFinanca(props) {
+function InsertFinance(props) {
   const [formData, setFormData] = useState({
-    nome: '',
-    valor: '',
-    mes: '',
-    categoria:'',
-    situacao: '',
-    subcategoria:'',
-    periodo:'',
-    mesInicio:'',
-    mesTermino:'',
+    name: '',
+    value: '',
+    month: '',
+    category:'',
+    situation: '',
+    subcategory:'',
+    period:'',
+    startMonth:'',
+    endMonth:'',
     
 
 
-    usuario:props.user
+    user:props.user
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
-      const response = await axios.post("https://api-finances-will.onrender.com/api/insert-finance", formData)
+      const response = await axios.post("https://api-finances-will.onrender.com/finance/insert", formData)
     
     alert(`${response.data} CADASTRADO COM SUCESSO`);
     window.location.reload();
@@ -96,24 +96,24 @@ function CadastroFinanca(props) {
       <h1>CADASTRO  DE  FINANÇAS</h1>
     <FormStyle onSubmit={handleSubmit}>
       <LabelStyle>
-        <InputStyle placeholder='NOME' name="nome" value={formData.nome} onChange={handleInputChange} />
+        <InputStyle placeholder='NOME' name="name" value={formData.name} onChange={handleInputChange} />
       </LabelStyle>
 
 
 
       <LabelStyle>
-        <InputStyle placeholder="VALOR" name="valor" value={formData.valor} onChange={handleInputChange} />
+        <InputStyle placeholder="VALOR" name="value" value={formData.value} onChange={handleInputChange} />
       </LabelStyle>
 
 
 
       <LabelStyle>
-      <SelectStyle name="categoria" value={formData.categoria}  onChange={handleSelectChange}>
+      <SelectStyle name="category" value={formData.category}  onChange={handleSelectChange}>
       
         <option value="">CATEGORIA</option>
-        <option value="ganho"> GANHO</option>
-        <option value="gasto">GASTO</option>
-        <option value="investimento">INVESTIMENTO</option>
+        <option value="positive"> GANHO</option>
+        <option value="negative">GASTO</option>
+        <option value="investiment">INVESTIMENTO</option>
 
                 
         </SelectStyle>
@@ -122,39 +122,39 @@ function CadastroFinanca(props) {
 
 
       <LabelStyle>
-      {formData.categoria === 'gasto' && (
+      {formData.category === 'negative' && (
          
-          <SelectStyle name="subcategoria" value={formData.subcategoria} onChange={handleSelectChange}>
+          <SelectStyle name="subcategory" value={formData.subcategory} onChange={handleSelectChange}>
             <option value="">SUBCATEGORIA</option>
-            <option value="conta-mensal">CONTA MENSAL</option>
-            <option value="lazer">LAZER</option>
-            <option value="estudo">ESTUDOS</option>
+            <option value="monthExpense">CONTA MENSAL</option>
+            <option value="leisure">LAZER</option>
+            <option value="estudy">ESTUDOS</option>
           </SelectStyle>
       )}
       </LabelStyle>
 
       <LabelStyle>
-      <SelectStyle name="situacao" value={formData.situacao}  onChange={handleSelectChange}>
+      <SelectStyle name="situation" value={formData.situation}  onChange={handleSelectChange}>
         <option value="">SITUAÇÃO</option>
-        <option value="pendente"> PENDENTE</option>
-        <option value="finalizado">FINALIZADO</option>
+        <option value="unpay"> A PAGAR</option>
+        <option value="pay">PAGO</option>
         </SelectStyle>
       </LabelStyle>
 
       <LabelStyle>
-      <SelectStyle name="periodo" value={formData.periodo}  onChange={handleSelectChange}>
+      <SelectStyle name="period" value={formData.period}  onChange={handleSelectChange}>
       
         <option value="">TIPO</option>
-        <option value="unico"> UNICO</option>
-        <option value="periodico">PERIODICO</option>
-        <option value="fixo">FIXO</option>
+        <option value="only"> UNICO</option>
+        <option value="periodical">PERIODICO</option>
+        <option value="fixed">FIXO</option>
                 
         </SelectStyle>
       </LabelStyle>
 
       <LabelStyle>
-        {formData.periodo === "unico" &&(
-      <SelectStyle name="mes" value={formData.mes} onChange={handleSelectChange}>
+        {formData.period === "only" &&(
+      <SelectStyle name="month" value={formData.month} onChange={handleSelectChange}>
                             <option>ESCOLHA O MÊS</option>
                             <option value="Janeiro">01 - JANEIRO</option>
                             <option value="Fevereiro">02 - FEVEREIRO</option>
@@ -174,8 +174,8 @@ function CadastroFinanca(props) {
 
 
       <LabelStyle>
-        {formData.periodo === "periodico" &&(
-          <SelectStyle name="mesInicio" value={formData.mesInicio} onChange={handleSelectChange}>
+        {formData.period === "periodical" &&(
+          <SelectStyle name="startMonth" value={formData.startMonth} onChange={handleSelectChange}>
                                 <option>ESCOLHA O MÊS DE INICIO</option>
                                 <option value="1">01 - JANEIRO</option>
                                 <option value="2">02 - FEVEREIRO</option>
@@ -196,8 +196,8 @@ function CadastroFinanca(props) {
 
 
       <LabelStyle>
-        {formData.periodo === "periodico" &&(
-          <SelectStyle name="mesTermino" value={formData.mesTermino} onChange={handleSelectChange}>
+        {formData.period === "periodical" &&(
+          <SelectStyle name="endMonth" value={formData.endMonth} onChange={handleSelectChange}>
                                 <option>ESCOLHA O MÊS DE TERMINO</option>
                                 <option value="1">01 - JANEIRO</option>
                                 <option value="2">02 - FEVEREIRO</option>
@@ -226,4 +226,4 @@ function CadastroFinanca(props) {
   );
 }
 
-export default CadastroFinanca;
+export default InsertFinance;

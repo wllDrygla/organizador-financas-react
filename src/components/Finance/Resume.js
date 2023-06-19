@@ -28,39 +28,41 @@ const DivStyleDetalhes = styled.div`
 
 
 const Resumo = (props) => {
-  var usuario = props.user
-  const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
+  let user = props.user
+  const baseURL = "https://api-finances-will.onrender.com/finance/get-all/" + user
 
 
-  const [financa, setFinanca] = React.useState([]);
-  var listaFinancasResumo = []
-  var total = 0
-  var total_antigo = 0
-  var total_novo = 0
-  var contador = 0
+  const [finance, setFinanca] = React.useState([]);
+  let listaFinancasResumo = []
+  let total = 0
+  let total_antigo = 0
+  let total_novo = 0
+  let contador = 0
   React.useEffect(() => {
-    axios.get(baseURL).then(financasResultado => {
+    axios.get(baseURL).then(financesResult => {
       contador = contador + 1;
+      console.log(financesResult.data.finance)
+
       if (contador <= 1) {
-        for (let i = 0; i < financasResultado.data.financa.length; i++) {
-          listaFinancasResumo.push(financasResultado.data.financa[i]);
+        for (let i = 0; i < financesResult.data.finance.length; i++) {
+          listaFinancasResumo.push(financesResult.data.finance[i]);
           setFinanca(listaFinancasResumo)
         }
       }
     });
   }, []);
 
-  if (!financa) return (<h1>Carregando....</h1>);
+  if (!finance) return (<h1>Carregando....</h1>);
 
   return (
     <DivPaiStyle className="teste">
       <TableHeader name='NOME' value='VALOR' ></TableHeader>
 
       {
-        financa.map((item) => {
-          if (props.month == item.mes && item.situacao == "pendente") {
-            total_novo = item.valor;
-            if (item.categoria == "gasto" || item.categoria == "investimento") {
+        finance.map((item) => {
+          if (props.month == item.month && item.situation == "unpay") {
+            total_novo = item.value;
+            if (item.category == "negative" || item.category == "investiment") {
               total = total_antigo - total_novo;
             } else { total = total_antigo + total_novo }
             total_antigo = total;
@@ -68,7 +70,7 @@ const Resumo = (props) => {
             return (
 
               <DivStyleDetalhes>
-                <TableBody name={item.nome} value={item.valor} category={item.categoria} situacao={item.situacao} id={item._id}></TableBody>
+                <TableBody name={item.name} value={item.value} category={item.category} situation={item.situation} id={item._id}></TableBody>
               </DivStyleDetalhes>
             )
           }

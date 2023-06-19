@@ -60,15 +60,15 @@ border: 1px black solid;
 
 `
 const TableBody = (props) => {
-  const baseURLStatusChange = `https://api-finances-will.onrender.com/api/finance/${props.situacao}/`
+  const baseURLStatusChange = `https://api-finances-will.onrender.com/finance/${props.situation}/`
   const baseURLDelete = "https://api-finances-will.onrender.com/finance/"
   const item = useState({
     name: props.name,
     value: props.value,
   });
   const [updatedItem, setUpdatedItem] = useState({
-    nome: props.name,
-    valor: props.value,
+    name: props.name,
+    value: props.value,
   });
 
 
@@ -91,12 +91,12 @@ const TableBody = (props) => {
     }
   };
 
-  if (props.category === 'gasto') {
-    if (props.situacao === 'pendente') {
+  if (props.category === 'negative') {
+    if (props.situation === 'unpay') {
       return (
         <div >
-          <RedCellTextStyle placeholder={props.name} name="nome" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
-          <RedCellTextStyle placeholder={props.value} name="valor" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <RedCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <RedCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='>' link={baseURLStatusChange + props.id}></Button>
           <Button action='deleteRequest' value="X" link={baseURLDelete + props.id}></Button>
         </div>
@@ -104,8 +104,8 @@ const TableBody = (props) => {
     } else {
       return (
         <div >
-          <RedCellTextStyle placeholder={props.name} name="nome" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
-          <RedCellTextStyle placeholder={props.value} name="valor" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <RedCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <RedCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='<' link={baseURLStatusChange + props.id}></Button>
           <Button action='deleteRequest' value="X" link={baseURLDelete + props.id}></Button>
         </div>
@@ -113,11 +113,11 @@ const TableBody = (props) => {
     }
 
   } else {
-    if (props.situacao === 'pendente') {
+    if (props.situation === 'unpay') {
       return (
         <div >
-          <GreenCellTextStyle placeholder={props.name} name="nome" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
-          <GreenCellTextStyle placeholder={props.value} name="valor" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <GreenCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <GreenCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='>' link={baseURLStatusChange + props.id}></Button>
           <Button action='deleteRequest' value="X" link={baseURLDelete + props.id}></Button>
         </div>
@@ -125,8 +125,8 @@ const TableBody = (props) => {
     } else {
       return (
         <div >
-          <GreenCellTextStyle placeholder={props.name} name="nome" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
-          <GreenCellTextStyle placeholder={props.value} name="valor" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <GreenCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
+          <GreenCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='<' link={baseURLStatusChange + props.id}></Button>
           <Button action='deleteRequest' value="X" link={baseURLDelete + props.id}></Button>
         </div>

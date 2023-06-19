@@ -3,9 +3,9 @@ import axios from "axios";
 import TextContent from "../components/TextContent";
 
 const MonthStatementCategory = (props) => {
-  const baseURLcategory = `https://api-finances-will.onrender.com/api/category-month-total/${props.category}/${props.month}/${props.user}`
-  const baseURLtotal = `https://api-finances-will.onrender.com/api/month-statement-total/${props.user}/${props.month}`
-  const baseURLtotalInvestimento = `https://api-finances-will.onrender.com/api/total-category/${props.user}/${props.category}`
+  const baseURLcategory = `https://api-finances-will.onrender.com/finance/category-month-total/${props.category}/${props.month}/${props.user}`
+  const baseURLtotal = `https://api-finances-will.onrender.com/finance/month-statement-total/${props.user}/${props.month}`
+  const baseURLtotalInvestimento = `https://api-finances-will.onrender.com/finance/total-category/${props.user}/${props.category}`
 
 
   const [totalCategory, setTotalCategory] = React.useState('Carregando..');
@@ -42,7 +42,7 @@ const MonthStatementCategory = (props) => {
       )
     
   } 
-  if (props.category === 'investimento' && props.month === 'todos') {
+  if (props.category === 'investiment' && props.month === 'all') {
     return (
       <TextContent type='paragraph' content={totalInvestiment} ></TextContent>
     )

@@ -43,10 +43,10 @@ margin:5px;
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    usuario: '',
-    senha: ''
+    user: '',
+    password: ''
   });
-  const userLogged = sessionStorage.getItem("usuario");
+  const userLogged = sessionStorage.getItem("user");
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevState) => ({
@@ -56,11 +56,11 @@ const Login = () => {
   };
   const handleLogin = (event) => {
     event.preventDefault();
-    axios.post("https://api-finances-will.onrender.com/api/login", formData)
+    axios.post("https://api-finances-will.onrender.com/user/login", formData)
       .then((response) => {
-        console.log(response.data.usuarioLogado);
-        if (response.data.usuarioLogado) {
-          sessionStorage.setItem("user", response.data.usuarioLogado);
+        console.log(response.data.erro);
+        if (response.data.user) {
+          sessionStorage.setItem("user", response.data.user);
           sessionStorage.setItem("userLogged", 'true');
           window.location.reload();
         } else {
@@ -81,12 +81,12 @@ const Login = () => {
               <TextContent type='title' content='SEJA BEM-VINDO ORGANIZADOR DE FINANÇAS DO WiLL'></TextContent>
               <TextContent content='USUÁRIO:'></TextContent>
 
-              <InputStyle type="text" name="usuario" onChange={handleInputChange} />
+              <InputStyle type="text" name="user" onChange={handleInputChange} />
             </label>
             <br />
             <label>
-              <TextContent content='SENHA:'></TextContent>
-              <InputStyle type="password" name="senha" onChange={handleInputChange} />
+              <TextContent content='password:'></TextContent>
+              <InputStyle type="password" name="password" onChange={handleInputChange} />
             </label>
             <br />
             <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
@@ -98,7 +98,7 @@ const Login = () => {
 
           <TextContent content="USUÁRIO: 'teste'"></TextContent>
 
-          <TextContent content="SENHA: '1234'"></TextContent>
+          <TextContent content="password: '1234'"></TextContent>
         </DivStyle>
         <DivStyle>
           <TextContent type='title' content="EXEMPLO DO SITE: "></TextContent>

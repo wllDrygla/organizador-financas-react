@@ -39,8 +39,6 @@ height: 43px;
 
 
 };
-
-
 `
 
 const Button = (props) => {

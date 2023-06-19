@@ -27,11 +27,11 @@ const TableCategory = (props) => {
   var total = 0
   var total_antigo = 0
   var total_novo = 0
-  const [financa, setFinanca] = React.useState([]);
+  const [finance, setFinanca] = React.useState([]);
 
-  const categoria = props.category
-  const usuario = props.user
-  const baseURL = "https://api-finances-will.onrender.com/api/get-all-finances/" + usuario
+  const category = props.category
+  const user = props.user
+  const baseURL = "https://api-finances-will.onrender.com/finance/get-all/" + user
   let listaFinancas = [
   ]
   var contador = 0
@@ -39,8 +39,8 @@ const TableCategory = (props) => {
     axios.get(baseURL).then(financasResultado => {
       contador = contador + 1;
       if (contador <= 1) {
-        for (let i = 0; i < financasResultado.data.financa.length; i++) {
-          listaFinancas.push(financasResultado.data.financa[i]);
+        for (let i = 0; i < financasResultado.data.finance.length; i++) {
+          listaFinancas.push(financasResultado.data.finance[i]);
           setFinanca(listaFinancas)
         }
       }
@@ -48,30 +48,30 @@ const TableCategory = (props) => {
 
   }, [props.month]);
 
-  if (!financa) return (<h1>Carregando....</h1>);
+  if (!finance) return (<h1>Carregando....</h1>);
 
   return (
     <DivPaiStyle className="teste"> 
-      <TextContent content={`${categoria}s de ${props.month}`}></TextContent>
+      <TextContent content={`${category}s de ${props.month}`}></TextContent>
       <TableHeaderRow name='NOME' value='VALOR'></TableHeaderRow>
 
 
       {
-        financa.map((item) => {
+        finance.map((item) => {
 
-          if (item.categoria == categoria && item.situacao == "finalizado") {
-            if (props.month == item.mes) {
+          if (item.category == category && item.situation == "pay") {
+            if (props.month == item.month) {
 
-              total_novo = item.valor;
+              total_novo = item.value;
               total = total_antigo + total_novo;
               total_antigo = total;
 
               return (
                 <TableBody
-                  name={item.nome}
-                  value={item.valor}
-                  category={item.categoria}
-                  situacao={item.situacao}
+                  name={item.name}
+                  value={item.value}
+                  category={item.category}
+                  situation={item.situation}
                   id={item._id} className="teste">
                 </TableBody>
               )
@@ -80,18 +80,18 @@ const TableCategory = (props) => {
             }
           }
         })}
-      {financa.map((item) => {
-        if (item.categoria == categoria && item.situacao == "pendente") {
-          if (props.month == item.mes) {
-            total_novo = item.valor;
+      {finance.map((item) => {
+        if (item.category == category && item.situation == "unpay") {
+          if (props.month == item.month) {
+            total_novo = item.value;
             total = total_antigo + total_novo;
             total_antigo = total;
             return (
               <TableBody
-                name={item.nome}
-                value={item.valor}
-                category={item.categoria}
-                situacao={item.situacao}
+                name={item.name}
+                value={item.value}
+                category={item.category}
+                situation={item.situation}
                 id={item._id}>
               </TableBody>
             )

@@ -3,7 +3,7 @@ import axios from "axios";
 import TextContent from "../components/TextContent";
 
 const DetailsTableCell = (props) => {
-  const baseURLTotalSubcategory = `https://api-finances-will.onrender.com/api/subcategory-month-total/${props.category}/${props.month}/${props.user}/${props.subcategoria}`
+  const baseURLTotalSubcategory = `https://api-finances-will.onrender.com/finance/subcategory-month-total/${props.category}/${props.month}/${props.user}/${props.subcategory}`
 
 
   const [totalSubCategory, setTotalSubCategory] = React.useState('Carregando..');
@@ -19,11 +19,6 @@ const DetailsTableCell = (props) => {
     return (
       <TextContent type='paragraph' content={totalSubCategory}></TextContent>
     )
-  
-
-
-
-
 
 };
 

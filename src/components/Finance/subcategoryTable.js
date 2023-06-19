@@ -24,7 +24,7 @@ const DetailsTable = (props) => {
                 category={props.category}
                 month={props.month}
                 user={props.user}
-                subcategoria={props.subcategoria}
+                subcategory={props.subcategory}
             ></DetailsTableCell>
 
         </DivStyle>

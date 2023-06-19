@@ -71,32 +71,13 @@ border: 1px black solid;
 
 
 const TableHeaderRow = (props) => {
-  const baseURLStatusChange = `https://api-finances-will.onrender.com/api/finance/${props.situacao}/`
-  const baseURLDelete = "https://api-finances-will.onrender.com/finance/"
-  const item = useState({
-    name:props.name,
-    value: props.value,
-  });
-  const [updatedItem, setUpdatedItem] = useState({
-    nome: props.name,
-    valor: props.value,
-  });
-
-
-
-    return (
+     return (
         <div >
-          <CellTextStyle  placeholder={props.name} name="nome" />
-          <CellTextStyle  placeholder={props.value} name="valor"   />
+          <CellTextStyle  placeholder={props.name} name="name" />
+          <CellTextStyle  placeholder={props.value} name="value"   />
           <TestCellTextStyle  placeholder="AÇÃO" name="actions"   />
         </div>
-
     )
-
-
-    
-
-
   };
   
 

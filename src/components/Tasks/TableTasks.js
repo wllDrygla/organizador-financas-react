@@ -104,28 +104,28 @@ margin:1%;
 }
 `
 
-const TableMetas = (props) => {
+const TableTasks = (props) => {
     const [meta, setMeta] = React.useState([]);
-    const baseURLFinalizar = "https://api-finances-will.onrender.com/api/metas/finalizar/"
-    const baseURLPendente = "https://api-finances-will.onrender.com/api/metas/pendente/"
-    const baseURLFazendo = "https://api-finances-will.onrender.com/api/metas/fazendo/"
+    const baseURLFinalizar = "https://api-finances-will.onrender.com/task/done/"
+    const baseURLPendente = "https://api-finances-will.onrender.com/task/to-do/"
+    const baseURLFazendo = "https://api-finances-will.onrender.com/task/doing/"
     const baseURLDelete = "https://api-finances-will.onrender.com/task/"
 
     const [formData, setFormData] = useState({
     });
     const status = props.status
-    const usuario = props.user
-    const baseURL = "https://api-finances-will.onrender.com/api/metas/" + usuario
-    var listaMetas = [
+    const user = props.user
+    const baseURL = "https://api-finances-will.onrender.com/task/get-all/" + user
+    var listaTasks = [
     ]
     var contador = 0
     React.useEffect(() => {
-        axios.get(baseURL).then(metasResultado => {
+        axios.get(baseURL).then(tasksResult => {
             contador = contador + 1;
             if (contador <= 1) {
-                for (let i = 0; i < metasResultado.data.metas.length; i++) {
-                    listaMetas.push(metasResultado.data.metas[i]);
-                    setMeta(listaMetas)
+                for (let i = 0; i < tasksResult.data.Tasks.length; i++) {
+                    listaTasks.push(tasksResult.data.Tasks[i]);
+                    setMeta(listaTasks)
                 }
             }
 
@@ -135,7 +135,7 @@ const TableMetas = (props) => {
 
     if (!meta) return (<h1>Carregando....</h1>);
 
-    if (props.status === 'PENDENTE') {
+    if (props.status === 'to-do') {
         return (
             <NewDivStyle className="teste">
                 <TextContentTitleStyle>{status}</TextContentTitleStyle>
@@ -145,7 +145,6 @@ const TableMetas = (props) => {
                             return (
                                 <DivStyle>
                                     <TextContentRedStyle> {item.name} </TextContentRedStyle>
-
                                     <Button action='postRequest' value=">" link={baseURLFazendo + item._id}></Button>
 
                                     <Button action='postRequest' value=">>" link={baseURLFinalizar + item._id}></Button>
@@ -159,7 +158,7 @@ const TableMetas = (props) => {
             </NewDivStyle>
         )
     };
-    if (props.status === 'FAZENDO') {
+    if (props.status === 'doing') {
         return (
             <NewDivStyle className="teste">
                 <TextContentTitleStyle>{status}</TextContentTitleStyle>
@@ -184,7 +183,7 @@ const TableMetas = (props) => {
         )
     };
 
-    if (props.status === 'FINALIZADO') {
+    if (props.status === 'done') {
         return (
             <NewDivStyle className="teste">
                 <TextContentTitleStyle>{status}</TextContentTitleStyle>
@@ -216,4 +215,4 @@ const TableMetas = (props) => {
 
 
 
-export default TableMetas;
+export default TableTasks;

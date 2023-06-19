@@ -2,7 +2,7 @@ import styled from "styled-components";
 import TextContent from "../components/TextContent";
 import StatementTable from "../Finance/StatementTable";
 import DetailsTable from "../Finance/subcategoryTable";
-import TableMetas from "../Metas/TableMetas";
+import TableTasks from "../Tasks/TableTasks";
 
 const LeftDivStyle = styled.div`
 text-align: center;
@@ -38,18 +38,18 @@ const LeftDivFinance = (props) => {
       <StatementTable content="SALDO: " category='total' month={props.month} user={props.user}></StatementTable>
 
       <TextContent content={'EXTRATO DE GASTOS'}></TextContent>
-      <DetailsTable content="CONTAS MENSAIS: " category='gasto' month={props.month} user={props.user} subcategoria='conta-mensal'></DetailsTable>
-      <DetailsTable content="ESTUDOS: " category='gasto' month={props.month} user={props.user} subcategoria='estudo'></DetailsTable>
-      <DetailsTable content="LAZER: " category='gasto' month={props.month} user={props.user} subcategoria='lazer'></DetailsTable>
-      <StatementTable content="TOTAL: " category='gasto' month={props.month} user={props.user}></StatementTable>
+      <DetailsTable content="CONTAS MENSAIS: " category='negative' month={props.month} user={props.user} subcategory='monthExpense'></DetailsTable>
+      <DetailsTable content="ESTUDOS: " category='negative' month={props.month} user={props.user} subcategory='estudy'></DetailsTable>
+      <DetailsTable content="LAZER: " category='negative' month={props.month} user={props.user} subcategory='leisure'></DetailsTable>
+      <StatementTable content="TOTAL: " category='negative' month={props.month} user={props.user}></StatementTable>
 
       <TextContent content={'EXTRATO DE GANHOS'}></TextContent>
-      <StatementTable content="TOTAL: " category='ganho' month={props.month} user={props.user}></StatementTable>
+      <StatementTable content="TOTAL: " category='positive' month={props.month} user={props.user}></StatementTable>
 
 
       <TextContent content={'EXTRATO DE INVESTIMENTOS'}></TextContent>
-      <StatementTable content="INVESTIMENTOS MENSAIS: " category='investimento' month={props.month} user={props.user}></StatementTable>
-      <StatementTable content="TOTAL DE INVESTIMENTOS: " category='investimento' month='todos' user={props.user}></StatementTable>
+      <StatementTable content="INVESTIMENTOS MENSAIS: " category='investiment' month={props.month} user={props.user}></StatementTable>
+      <StatementTable content="TOTAL DE INVESTIMENTOS: " category='investiment' month='all' user={props.user}></StatementTable>
 
 
     </LeftDivStyle>
@@ -59,7 +59,7 @@ const LeftDivFinance = (props) => {
 const LeftDivTask = (props) => {
   return (
     <LeftDivStyle>
-      <TableMetas user={props.user} status='PENDENTE'></TableMetas>
+      <TableTasks user={props.user} status='to-do'></TableTasks>
     </LeftDivStyle>
   )
 };

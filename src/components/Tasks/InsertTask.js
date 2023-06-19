@@ -44,15 +44,15 @@ width: 50%;
 
 
 
-function CadastroMeta(props) {
+function InsertTask(props) {
   const [formData, setFormData] = useState({
-    meta: '',
+    name: '',
     status: '',
-    usuario:props.user
+    user:props.user
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
-      const response = await axios.post("https://api-finances-will.onrender.com/api/metas/cadastro", formData)
+      const response = await axios.post("https://api-finances-will.onrender.com/task/insert", formData)
     alert(`${response.data} CADASTRADO COM SUCESSO`)
     };
 
@@ -77,18 +77,18 @@ function CadastroMeta(props) {
 
   return (
     <DivStyle>
-      <h1>CADASTRO  DE  METAS</h1>
+      <h1>CADASTRO  DE  taskS</h1>
     <FormStyle onSubmit={handleSubmit}>
       <LabelStyle>
-        <InputStyle placeholder='NOME' name="meta" value={formData.meta} onChange={handleInputChange} />
+        <InputStyle placeholder='NOME' name="name" value={formData.name} onChange={handleInputChange} />
       </LabelStyle>
 
       <LabelStyle>
       <SelectStyle name="status" value={formData.status}  onChange={handleSelectChange}>
         <option value="">STATUS</option>
-        <option value="PENDENTE"> A FAZER</option>
-        <option value="FAZENDO"> FAZENDO</option>
-        <option value="FINALIZADO">PRONTA</option>
+        <option value="to-do"> A FAZER</option>
+        <option value="doing"> doing</option>
+        <option value="done">PRONTA</option>
         </SelectStyle>
       </LabelStyle>
 
@@ -103,4 +103,4 @@ function CadastroMeta(props) {
   );
 }
 
-export default CadastroMeta;
+export default InsertTask;

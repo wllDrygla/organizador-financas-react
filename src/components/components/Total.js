@@ -30,15 +30,15 @@ font-size:40px;
 
 
 const Total = (props) => {
-    return (
-        <DivStyle>
-<TextContentStyleTotal>      </TextContentStyleTotal>
-<TextContentStyleTotal>  TOTAL:   </TextContentStyleTotal>
-<TextContentStyleTotal>     </TextContentStyleTotal>
+  return (
+    <DivStyle>
+      <TextContentStyleTotal>      </TextContentStyleTotal>
+      <TextContentStyleTotal>  TOTAL:   </TextContentStyleTotal>
+      <TextContentStyleTotal>     </TextContentStyleTotal>
 
-<TextContentStyleTotal>R${props.total},00 </TextContentStyleTotal>
-</DivStyle>
-    )
+      <TextContentStyleTotal>R${props.total},00 </TextContentStyleTotal>
+    </DivStyle>
+  )
 }
 
 export default Total;

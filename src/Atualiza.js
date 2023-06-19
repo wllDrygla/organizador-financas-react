@@ -4,16 +4,16 @@ import axios from 'axios';
 const Atualiza = (props) => {
 
   const item = useState({
-    nome: props.nome,
-    valor:props.valor,
-    categoria: props.categoria,
-    situacao: props.situacao
+    name: props.name,
+    value:props.value,
+    category: props.category,
+    situation: props.situation
   });
   const [updatedItem, setUpdatedItem] = useState({
-    nome: '',
-    valor:'',
-    categoria: '',
-    situacao: ''
+    name: '',
+    value:'',
+    category: '',
+    situation: ''
   });
 
 
@@ -36,11 +36,11 @@ const Atualiza = (props) => {
 
   return (
     <div>
-      <input  placeholder={item[0].nome} nome="nome" value={updatedItem.nome} onChange={handleUpdatedItemChange} />
-      <input placeholder={item[0].valor} value={updatedItem.valor} onChange={handleUpdatedItemChange} />
-      <input placeholder={item[0].categoria} value={updatedItem.categoria} onChange={handleUpdatedItemChange} />
+      <input  placeholder={item[0].name} name="name" value={updatedItem.name} onChange={handleUpdatedItemChange} />
+      <input placeholder={item[0].value} value={updatedItem.value} onChange={handleUpdatedItemChange} />
+      <input placeholder={item[0].category} value={updatedItem.category} onChange={handleUpdatedItemChange} />
 
-      <input placeholder={item[0].situacao} value={updatedItem.situacao} onChange={handleUpdatedItemChange} />
+      <input placeholder={item[0].situation} value={updatedItem.situation} onChange={handleUpdatedItemChange} />
       <br />
       <button onClick={handleUpdateItem}>Update Item</button>
     </div>

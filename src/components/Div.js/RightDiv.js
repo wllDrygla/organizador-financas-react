@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import TextContent from "../components/TextContent";
 import Table from "../FinanceTable/Table";
-import TableMetas from "../Metas/TableMetas";
+import TableTasks from "../Tasks/TableTasks";
 
 const RightDivStyle = styled.div`
 text-align: center;
@@ -24,9 +24,9 @@ const RightDivFinance = (props) => {
   return (
     <RightDivStyle>
       <TextContent content={`FINANÇAS MENSAIS:`}></TextContent>
-      <Table user={props.user} category='gasto' month={props.month}> </Table>
-      <Table user={props.user} category='ganho' month={props.month}></Table>
-      <Table user={props.user} category='investimento' month={props.month}></Table>
+      <Table user={props.user} category='negative' month={props.month}> </Table>
+      <Table user={props.user} category='positive' month={props.month}></Table>
+      <Table user={props.user} category='investiment' month={props.month}></Table>
     </RightDivStyle>
   )
 };
@@ -34,7 +34,7 @@ const RightDivFinance = (props) => {
 const RightDivTask = (props) => {
   return (
     <RightDivStyle>
-      <TableMetas user={props.user} status='FINALIZADO'></TableMetas>
+      <TableTasks user={props.user} status='done'></TableTasks>
     </RightDivStyle>
   )
 }
