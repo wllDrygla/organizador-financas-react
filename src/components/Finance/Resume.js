@@ -41,8 +41,6 @@ const Resumo = (props) => {
   React.useEffect(() => {
     axios.get(baseURL).then(financesResult => {
       contador = contador + 1;
-      console.log(financesResult.data.finance)
-
       if (contador <= 1) {
         for (let i = 0; i < financesResult.data.finance.length; i++) {
           listaFinancasResumo.push(financesResult.data.finance[i]);

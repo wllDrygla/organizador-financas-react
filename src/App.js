@@ -93,7 +93,7 @@ function App() {
             <CenterDivFinance user={userLogged} month={selectedMonth}></CenterDivFinance>
             <RightDivFinance user={userLogged} month={selectedMonth} ></RightDivFinance>
           </DivStyle>
-          <TextContent type='title' content='SISTEMA DE METAS'></TextContent>
+          <TextContent type='title' content='SISTEMA DE TAREFAS'></TextContent>
 
           <DivStyle>
             <LeftDivTask user={userLogged} month={selectedMonth} ></LeftDivTask>

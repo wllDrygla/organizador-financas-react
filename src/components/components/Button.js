@@ -51,13 +51,13 @@ const Button = (props) => {
 
   const postRequest = async (event) => {
     event.preventDefault();
-    console.log('props.link', props.link)
     const response = await axios.post(props.link);
     window.location.reload();
   };
 
   const deleteRequest = async (event) => {
     event.preventDefault();
+    console.log(props.link)
     const response = await axios.delete(props.link);
     alert(`${response.data}`);
     window.location.reload();

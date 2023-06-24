@@ -128,6 +128,7 @@ const TableTasks = (props) => {
                     setMeta(listaTasks)
                 }
             }
+            console.log(meta)
 
         });
 
@@ -138,13 +139,13 @@ const TableTasks = (props) => {
     if (props.status === 'to-do') {
         return (
             <NewDivStyle className="teste">
-                <TextContentTitleStyle>{status}</TextContentTitleStyle>
+                <TextContentTitleStyle>TO DO</TextContentTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
                             return (
                                 <DivStyle>
-                                    <TextContentRedStyle> {item.name} </TextContentRedStyle>
+                                    <TextContentRedStyle> {item.task} </TextContentRedStyle>
                                     <Button action='postRequest' value=">" link={baseURLFazendo + item._id}></Button>
 
                                     <Button action='postRequest' value=">>" link={baseURLFinalizar + item._id}></Button>
@@ -161,13 +162,13 @@ const TableTasks = (props) => {
     if (props.status === 'doing') {
         return (
             <NewDivStyle className="teste">
-                <TextContentTitleStyle>{status}</TextContentTitleStyle>
+                <TextContentTitleStyle>DOING</TextContentTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
                             return (
                                 <DivStyle>
-                                    <TextContentBlueStyle> {item.name} </TextContentBlueStyle>
+                                    <TextContentBlueStyle> {item.task} </TextContentBlueStyle>
 
                                     <Button action='postRequest' value="<" link={baseURLPendente + item._id}></Button>
 
@@ -186,13 +187,13 @@ const TableTasks = (props) => {
     if (props.status === 'done') {
         return (
             <NewDivStyle className="teste">
-                <TextContentTitleStyle>{status}</TextContentTitleStyle>
+                <TextContentTitleStyle>DONE</TextContentTitleStyle>
                 {
                     meta.map((item) => {
                         if (item.status == status) {
                             return (
                                 <DivStyle>
-                                    <TextContentGreenStyle> {item.name} </TextContentGreenStyle>
+                                    <TextContentGreenStyle> {item.task} </TextContentGreenStyle>
 
                                     <Button action='postRequest' value="<<" link={baseURLPendente + item._id}></Button>
 

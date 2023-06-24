@@ -46,11 +46,12 @@ width: 50%;
 
 function InsertTask(props) {
   const [formData, setFormData] = useState({
-    name: '',
+    task: '',
     status: '',
     user:props.user
   });
   const handleSubmit = async (event) => {
+    console.log(formData)
     event.preventDefault();
       const response = await axios.post("https://api-finances-will.onrender.com/task/insert", formData)
     alert(`${response.data} CADASTRADO COM SUCESSO`)
@@ -77,18 +78,18 @@ function InsertTask(props) {
 
   return (
     <DivStyle>
-      <h1>CADASTRO  DE  taskS</h1>
+      <h1>CADASTRO  DE  TAREFAS</h1>
     <FormStyle onSubmit={handleSubmit}>
       <LabelStyle>
-        <InputStyle placeholder='NOME' name="name" value={formData.name} onChange={handleInputChange} />
+        <InputStyle placeholder='NOME' name="task" value={formData.task} onChange={handleInputChange} />
       </LabelStyle>
 
       <LabelStyle>
       <SelectStyle name="status" value={formData.status}  onChange={handleSelectChange}>
         <option value="">STATUS</option>
-        <option value="to-do"> A FAZER</option>
-        <option value="doing"> doing</option>
-        <option value="done">PRONTA</option>
+        <option value="to-do"> TO DO</option>
+        <option value="doing"> DOING</option>
+        <option value="done">DONE</option>
         </SelectStyle>
       </LabelStyle>
 

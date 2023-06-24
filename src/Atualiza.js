@@ -28,7 +28,6 @@ const Atualiza = (props) => {
   const handleUpdateItem = async () => {
     try {
       const response = await axios.post(`https://api-finances-will.onrender.com/${props.id}`, { item: updatedItem });
-      console.log(updatedItem);
     } catch (error) {
       console.error(error);
     }

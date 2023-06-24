@@ -30,6 +30,7 @@ const TableCategory = (props) => {
   const [finance, setFinanca] = React.useState([]);
 
   const category = props.category
+  const title = props.title
   const user = props.user
   const baseURL = "https://api-finances-will.onrender.com/finance/get-all/" + user
   let listaFinancas = [
@@ -52,7 +53,7 @@ const TableCategory = (props) => {
 
   return (
     <DivPaiStyle className="teste"> 
-      <TextContent content={`${category}s de ${props.month}`}></TextContent>
+      <TextContent content={`${title} de ${props.month}`}></TextContent>
       <TableHeaderRow name='NOME' value='VALOR'></TableHeaderRow>
 
 

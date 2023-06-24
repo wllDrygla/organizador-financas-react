@@ -24,9 +24,9 @@ const RightDivFinance = (props) => {
   return (
     <RightDivStyle>
       <TextContent content={`FINANÇAS MENSAIS:`}></TextContent>
-      <Table user={props.user} category='negative' month={props.month}> </Table>
-      <Table user={props.user} category='positive' month={props.month}></Table>
-      <Table user={props.user} category='investiment' month={props.month}></Table>
+      <Table user={props.user} title='Gastos' category='negative' month={props.month}> </Table>
+      <Table user={props.user} title='Ganhos' category='positive' month={props.month}></Table>
+      <Table user={props.user} title='Investimentos'category='investiment' month={props.month}></Table>
     </RightDivStyle>
   )
 };

@@ -58,7 +58,6 @@ const Login = () => {
     event.preventDefault();
     axios.post("https://api-finances-will.onrender.com/user/login", formData)
       .then((response) => {
-        console.log(response.data.erro);
         if (response.data.user) {
           sessionStorage.setItem("user", response.data.user);
           sessionStorage.setItem("userLogged", 'true');
