@@ -84,7 +84,8 @@ const TableBody = (props) => {
   const handleUpdateItem = async () => {
     try {
       const response = await axios.post(`https://api-finances-will.onrender.com/finance/${props.id}`, { item: updatedItem });
-      window.location.reload();
+      props.refresh(props.id);
+      // window.location.reload();
 
     } catch (error) {
       console.error(error);

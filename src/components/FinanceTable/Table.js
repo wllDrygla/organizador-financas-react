@@ -32,6 +32,7 @@ const TableCategory = (props) => {
   const category = props.category
   const title = props.title
   const user = props.user
+  const [renderiza, setRenderiza] = React.useState([]);
   const baseURL = "https://api-finances-will.onrender.com/finance/get-all/" + user
   let listaFinancas = [
   ]
@@ -47,8 +48,11 @@ const TableCategory = (props) => {
       }
     });
 
-  }, [props.month]);
+  }, [props.month, renderiza]);
 
+  const refreshTable = (id) => {
+    setRenderiza(id);
+  };
   if (!finance) return (<h1>Carregando....</h1>);
 
   return (
@@ -73,7 +77,8 @@ const TableCategory = (props) => {
                   value={item.value}
                   category={item.category}
                   situation={item.situation}
-                  id={item._id} className="teste">
+                  id={item._id} className="teste"
+                  refresh={refreshTable}>
                 </TableBody>
               )
 
@@ -93,7 +98,8 @@ const TableCategory = (props) => {
                 value={item.value}
                 category={item.category}
                 situation={item.situation}
-                id={item._id}>
+                id={item._id}
+                refresh={refreshTable}>
               </TableBody>
             )
           }
