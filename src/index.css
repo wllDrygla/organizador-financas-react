@@ -35,3 +35,61 @@ code {
 .teste::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+body::-webkit-scrollbar {
+  width: 0.4rem; /* Adjust the width as needed */
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+body::-webkit-scrollbar {
+  width: 0.4rem; /* Adjust the width as needed */
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.modal::-webkit-scrollbar {
+  width: 0.4rem; /* Adjust the width as needed */
+  background-color: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+.modal::-webkit-scrollbar {
+  width: 0.4rem; /* Adjust the width as needed */
+  background-color: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.modal{
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50% -50%);
+    width: auto;
+    padding: 50px;
+    border-radius: 4px;
+    border: 3px solid black;
+    text-align: center;
+    overflow-y: scroll;
+    max-height: 900px;
+    background-color: rgba(255, 255, 265, 0.9);
+    text-align: center;
+    margin: 10%;  
+    backdrop-filter: blur(500px); /* Apply the backdrop filter */
+
+}
+.button-close-modal{
+  text-align: right;
+  margin:1%;
+}

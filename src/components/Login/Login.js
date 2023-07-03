@@ -2,6 +2,7 @@ import React, { useState, createContext } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import TextContent from "../components/TextContent";
+import CustomModal from "../Finance/Modal";
 
 export const UserContext = createContext();
 const BodyStyle = styled.div`
@@ -42,6 +43,43 @@ margin:5px;
 
 
 const Login = () => {
+  const [isOpen, setIsOpen] = useState(false
+    );
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const [isOpenLoading, setIsOpenLoading] = useState(false);
+
+  const openModalLoading = () => {
+    setIsOpenLoading(true);
+  };
+
+  const closeModalLoading = () => {
+    setIsOpenLoading(false);
+  };
+
+  const [isOpeninitial, setIsOpenInitial] = useState(true);
+
+  const closeModalInitial = () => {
+    setIsOpenInitial(false);
+  };
+
+  const [isOpenError, setIsOpenError] = useState(false);
+
+  const openModalError = () => {
+    setIsOpenError(true);
+  };
+
+  const closeModalError = () => {
+    setIsOpenError(false);
+  };
+
   const [formData, setFormData] = useState({
     user: '',
     password: ''
@@ -56,25 +94,35 @@ const Login = () => {
   };
   const handleLogin = (event) => {
     event.preventDefault();
+    openModalLoading();
     axios.post("https://api-finances-will.onrender.com/user/login", formData)
       .then((response) => {
+        console.log(response)
         if (response.data.user) {
           sessionStorage.setItem("user", response.data.user);
           sessionStorage.setItem("userLogged", 'true');
-          window.location.reload();
+          closeModalLoading();
+          openModal();
         } else {
-          alert('ERRO: ' + response.data.erro)
+          closeModalLoading();
+          openModalError();
+          console.error('ERRO: ' + response.data.erro)
         }
       })
       .catch((error) => {
+        closeModalLoading();
+        openModalError();
         console.error(error);
       });
   };
+  
 
   return (
     <UserContext.Provider value={{ userLogged }}>
       <BodyStyle>
         <DivStyle>
+        <CustomModal type='initial' isOpen={isOpeninitial} onClose={closeModalInitial} />
+
           <form>
             <label>
               <TextContent type='title' content='SEJA BEM-VINDO ORGANIZADOR DE FINANÇAS DO WiLL'></TextContent>
@@ -90,6 +138,10 @@ const Login = () => {
             <br />
             <ButtonStyle type="submit" onClick={handleLogin}>ENTRAR</ButtonStyle>
           </form>
+          <CustomModal type='loading' isOpen={isOpenLoading} onClose={closeModalLoading} />
+          <CustomModal type='login' isOpen={isOpen} onClose={closeModal} />
+          <CustomModal type='error' isOpen={isOpenError} onClose={closeModalError} />
+
         </DivStyle>
         <DivStyle>
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
 import Button from '../components/Button';
+import CustomModal from '../Finance/Modal';
 
 
 const RedCellTextStyle = styled.input`
@@ -33,7 +34,7 @@ font-size:18px;
 
 const GreenCellTextStyle = styled.input`
 font-family: 'Gelasio';
-background-color: rgba(0, 240, 0, 0.107);
+background-color: rgba(0, 240, 0, 0.307);
 width:35%;
 padding:10px;
 text-align:center;
@@ -71,6 +72,36 @@ const TableBody = (props) => {
     value: props.value,
   });
 
+  const [isOpenLoading, setIsOpenLoading] = useState(false);
+
+  const openModalLoading = () => {
+    setIsOpenLoading(true);
+  };
+
+  const closeModalLoading = () => {
+    setIsOpenLoading(false);
+  };
+
+  const [isOpenUpdateItem, setIsOpenUpdateItem] = useState(false);
+
+  const openModalUpdateItem = () => {
+    setIsOpenUpdateItem(true);
+  };
+
+  const closeModalUpdateItem = () => {
+    setIsOpenUpdateItem(false);
+  };
+
+  const [isOpenError, setIsOpenError] = useState(false);
+
+  const openModalError = () => {
+    setIsOpenError(true);
+  };
+
+  const closeModalError = () => {
+    setIsOpenError(false);
+  };
+
 
   const handleUpdatedItemChange = (event) => {
     const { name, value } = event.target;
@@ -82,13 +113,14 @@ const TableBody = (props) => {
   };
 
   const handleUpdateItem = async () => {
+    openModalLoading();
     try {
       const response = await axios.post(`https://api-finances-will.onrender.com/finance/${props.id}`, { item: updatedItem });
-      props.refresh(props.id);
-      // window.location.reload();
-
+      closeModalLoading();
+      openModalUpdateItem();
     } catch (error) {
       console.error(error);
+      openModalError();
     }
   };
 
@@ -96,6 +128,10 @@ const TableBody = (props) => {
     if (props.situation === 'unpay') {
       return (
         <div >
+          <CustomModal type='loading' isOpen={isOpenLoading} onClose={closeModalLoading} />
+          <CustomModal type='updateItem' isOpen={isOpenUpdateItem} onClose={closeModalUpdateItem} />
+          <CustomModal type='error' isOpen={isOpenError} onClose={closeModalError} />
+
           <RedCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <RedCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='>' link={baseURLStatusChange + props.id}></Button>
@@ -105,6 +141,10 @@ const TableBody = (props) => {
     } else {
       return (
         <div >
+          <CustomModal type='loading' isOpen={isOpenLoading} onClose={closeModalLoading} />
+          <CustomModal type='updateItem' isOpen={isOpenUpdateItem} onClose={closeModalUpdateItem} />
+          <CustomModal type='error' isOpen={isOpenError} onClose={closeModalError} />
+
           <RedCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <RedCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='<' link={baseURLStatusChange + props.id}></Button>
@@ -117,6 +157,10 @@ const TableBody = (props) => {
     if (props.situation === 'unpay') {
       return (
         <div >
+          <CustomModal type='loading' isOpen={isOpenLoading} onClose={closeModalLoading} />
+          <CustomModal type='updateItem' isOpen={isOpenUpdateItem} onClose={closeModalUpdateItem} />
+          <CustomModal type='error' isOpen={isOpenError} onClose={closeModalError} />
+
           <GreenCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <GreenCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='>' link={baseURLStatusChange + props.id}></Button>
@@ -126,6 +170,10 @@ const TableBody = (props) => {
     } else {
       return (
         <div >
+          <CustomModal type='loading' isOpen={isOpenLoading} onClose={closeModalLoading} />
+          <CustomModal type='updateItem' isOpen={isOpenUpdateItem} onClose={closeModalUpdateItem} />
+          <CustomModal type='error' isOpen={isOpenError} onClose={closeModalError} />
+
           <GreenCellTextStyle placeholder={props.name} name="name" value={item.name} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <GreenCellTextStyle placeholder={props.value} name="value" value={item.value} onChange={handleUpdatedItemChange} onBlur={handleUpdateItem} />
           <Button action='postRequest' value='<' link={baseURLStatusChange + props.id}></Button>

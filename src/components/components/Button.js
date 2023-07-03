@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import axios from "axios";
 import React, { useState, createContext } from "react";
+import CustomModal from "../Finance/Modal";
 
 const ButtonStyle = styled.button`
 font-size: 18px;
@@ -41,12 +42,28 @@ height: 43px;
 };
 `
 
+const ButtonStyleTwo = styled.button`
+color:red;
+padding:10px;
+`
+
 const Button = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+
   const handleLogout = (event) => {
     event.preventDefault();
     sessionStorage.setItem("user", '');
     sessionStorage.setItem("userLogged", '');
-    window.location.reload();
+    openModal();
   };
 
   const postRequest = async (event) => {
@@ -63,10 +80,17 @@ const Button = (props) => {
     window.location.reload();
   };
 
+  const refreshWindow = () => {
+    window.location.reload()
+  };
+
   switch (props.action) {
     case 'handleLogout':
       return (
+        <div>
         <ButtonStyle onClick={handleLogout}>{props.value}</ButtonStyle>
+        <CustomModal type='logout' isOpen={isOpen} onClose={closeModal} />
+        </div>
       );
     case 'postRequest':
       return (
@@ -76,6 +100,11 @@ const Button = (props) => {
       return (
         <ButtonStyle onClick={deleteRequest}>{props.value}</ButtonStyle>
       );
+    case 'refreshWindow':{
+      return (
+        <ButtonStyleTwo onClick={refreshWindow}>{props.value}</ButtonStyleTwo>
+      );
+    }
     default:
       console.log('botao invalido');
       break;
