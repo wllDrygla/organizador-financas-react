@@ -73,7 +73,6 @@ function App() {
           <TextContent type='title' content={`BEM-VINDO, ${userLogged}`}></TextContent>
 
           <SelectStyle name="mesSelecionado" value={formData.mesSelecionado} onChange={handleSelectChange}>
-            <OptionStyle value='Junho'>ESCOLHA O MÊS</OptionStyle>
             <OptionStyle value="Janeiro">01 - JANEIRO</OptionStyle>
             <OptionStyle value="Fevereiro">02 - FEVEREIRO</OptionStyle>
             <OptionStyle value="Março">03 - MARÇO</OptionStyle>
