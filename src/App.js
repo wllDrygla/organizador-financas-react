@@ -59,7 +59,7 @@ function App() {
   };
 
   const [formData, setFormData] = useState({
-    mesSelecionado: 'Julho'
+    mesSelecionado: 'Agosto'
   });
   const selectedMonth = formData.mesSelecionado
 
