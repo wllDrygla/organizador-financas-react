@@ -132,7 +132,7 @@ const Login = () => {
             </label>
             <br />
             <label>
-              <TextContent content='password:'></TextContent>
+              <TextContent content='SENHA:'></TextContent>
               <InputStyle type="password" name="password" onChange={handleInputChange} />
             </label>
             <br />
