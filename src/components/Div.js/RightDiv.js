@@ -5,7 +5,7 @@ import TableTasks from "../Tasks/TableTasks";
 
 const RightDivStyle = styled.div`
 text-align: center;
-width:30%;
+width:35%;
 margin:1% ;
 @media (min-width: 1920px) {
   width: 35%;

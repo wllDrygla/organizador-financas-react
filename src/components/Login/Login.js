@@ -95,7 +95,7 @@ const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     openModalLoading();
-    axios.post("https://api-finances-will.onrender.com/user/login", formData)
+    axios.post("${baseUrl}/user/login", formData)
       .then((response) => {
         console.log(response)
         if (response.data.user) {

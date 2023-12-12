@@ -33,7 +33,7 @@ const TableCategory = (props) => {
   const title = props.title
   const user = props.user
   const [renderiza, setRenderiza] = React.useState([]);
-  const baseURL = "https://api-finances-will.onrender.com/finance/get-all/" + user
+  const baseURL = "${baseUrl}/finance/get-all/" + user
   let listaFinancas = [
   ]
   var contador = 0

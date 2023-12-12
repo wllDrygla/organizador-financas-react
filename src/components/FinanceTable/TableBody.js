@@ -61,8 +61,8 @@ border: 1px black solid;
 
 `
 const TableBody = (props) => {
-  const baseURLStatusChange = `https://api-finances-will.onrender.com/finance/${props.situation}/`
-  const baseURLDelete = "https://api-finances-will.onrender.com/finance/"
+  const baseURLStatusChange = `${baseUrl}/finance/${props.situation}/`
+  const baseURLDelete = "${baseUrl}/finance/"
   const item = useState({
     name: props.name,
     value: props.value,
@@ -115,7 +115,7 @@ const TableBody = (props) => {
   const handleUpdateItem = async () => {
     openModalLoading();
     try {
-      const response = await axios.post(`https://api-finances-will.onrender.com/finance/${props.id}`, { item: updatedItem });
+      const response = await axios.post(`${baseUrl}/finance/${props.id}`, { item: updatedItem });
       closeModalLoading();
       openModalUpdateItem();
     } catch (error) {

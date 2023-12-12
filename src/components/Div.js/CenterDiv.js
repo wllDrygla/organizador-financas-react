@@ -7,7 +7,7 @@ import InsertTask from "../Tasks/InsertTask";
 
 const CenterDivStyle = styled.div`
 text-align: center;
-width:30%;
+width:40%;
 margin:1% ;
 
 @media (min-width: 1920px) {

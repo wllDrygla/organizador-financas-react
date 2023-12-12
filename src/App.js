@@ -58,10 +58,15 @@ function App() {
 
   };
 
+  var mesAtual = new Date().getMonth() + 1
+console.log(mesAtual)
   const [formData, setFormData] = useState({
-    mesSelecionado: 'Setembro'
+    mesSelecionado: mesAtual
   });
-  const selectedMonth = formData.mesSelecionado
+  
+  const months = ["", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+
+  const selectedMonth = months[formData.mesSelecionado]
 
   const userLogged = sessionStorage.getItem("user");
   const isLoggedIn = sessionStorage.getItem("userLogged");
@@ -73,18 +78,20 @@ function App() {
           <TextContent type='title' content={`BEM-VINDO, ${userLogged}`}></TextContent>
 
           <SelectStyle name="mesSelecionado" value={formData.mesSelecionado} onChange={handleSelectChange}>
-            <OptionStyle value="Janeiro">01 - JANEIRO</OptionStyle>
-            <OptionStyle value="Fevereiro">02 - FEVEREIRO</OptionStyle>
-            <OptionStyle value="Março">03 - MARÇO</OptionStyle>
-            <OptionStyle value="Abril">04 - ABRIL</OptionStyle>
-            <OptionStyle value="Maio">05 - MAIO</OptionStyle>
-            <OptionStyle value="Junho">06 - JUNHO</OptionStyle>
-            <OptionStyle value="Julho">07 - JULHO</OptionStyle>
-            <OptionStyle value="Agosto">08 - AGOSTO</OptionStyle>
-            <OptionStyle value="Setembro">09 - SETEMBRO</OptionStyle>
-            <OptionStyle value="Outubro">10 - OUTUBRO</OptionStyle>
-            <OptionStyle value="Novembro">11 - NOVEMBRO</OptionStyle>
-            <OptionStyle value="Dezembro">12 - DEZEMBRO</OptionStyle>
+          <option value={0}>Janeiro</option>
+
+            <OptionStyle value={1}>01 - JANEIRO</OptionStyle>
+            <OptionStyle value={2}>02 - FEVEREIRO</OptionStyle>
+            <OptionStyle value={3}>03 - MARÇO</OptionStyle>
+            <OptionStyle value={4}>04 - ABRIL</OptionStyle>
+            <OptionStyle value={5}>05 - MAIO</OptionStyle>
+            <OptionStyle value={6}>06 - JUNHO</OptionStyle>
+            <OptionStyle value={7}>07 - JULHO</OptionStyle>
+            <OptionStyle value={8}>08 - AGOSTO</OptionStyle>
+            <OptionStyle value={9}>09 - SETEMBRO</OptionStyle>
+            <OptionStyle value={10}>10 - OUTUBRO</OptionStyle>
+            <OptionStyle value={11}>11 - NOVEMBRO</OptionStyle>
+            <OptionStyle value={12}>12 - DEZEMBRO</OptionStyle>
           </SelectStyle>
 
           <DivStyle>

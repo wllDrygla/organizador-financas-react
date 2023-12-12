@@ -106,16 +106,16 @@ margin:1%;
 
 const TableTasks = (props) => {
     const [meta, setMeta] = React.useState([]);
-    const baseURLFinalizar = "https://api-finances-will.onrender.com/task/done/"
-    const baseURLPendente = "https://api-finances-will.onrender.com/task/to-do/"
-    const baseURLFazendo = "https://api-finances-will.onrender.com/task/doing/"
-    const baseURLDelete = "https://api-finances-will.onrender.com/task/"
+    const baseURLFinalizar = "${baseUrl}/task/done/"
+    const baseURLPendente = "${baseUrl}/task/to-do/"
+    const baseURLFazendo = "${baseUrl}/task/doing/"
+    const baseURLDelete = "${baseUrl}/task/"
 
     const [formData, setFormData] = useState({
     });
     const status = props.status
     const user = props.user
-    const baseURL = "https://api-finances-will.onrender.com/task/get-all/" + user
+    const baseURL = "${baseUrl}/task/get-all/" + user
     var listaTasks = [
     ]
     var contador = 0

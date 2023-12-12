@@ -3,7 +3,7 @@ import axios from "axios";
 import TextContent from "../components/TextContent";
 
 const DetailsTableCell = (props) => {
-  const baseURLTotalSubcategory = `https://api-finances-will.onrender.com/finance/subcategory-month-total/${props.category}/${props.month}/${props.user}/${props.subcategory}`
+  const baseURLTotalSubcategory = `${baseUrl}/finance/subcategory-month-total/${props.category}/${props.month}/${props.user}/${props.subcategory}`
 
 
   const [totalSubCategory, setTotalSubCategory] = React.useState('Carregando..');

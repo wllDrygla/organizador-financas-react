@@ -37,8 +37,11 @@ border: 1px black solid;
 const TestCellTextStyle = styled.input`
 font-family: 'Gelasio';
 background-color: rgba(0, 0, 0, 0.017);
-width: 80px;
+width: 120px;
 padding:10px;
+padding-left:20px;
+padding-right:20px;
+
 text-align:center;
 &::placeholder {
     color: black;

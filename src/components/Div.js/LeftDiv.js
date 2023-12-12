@@ -6,7 +6,7 @@ import TableTasks from "../Tasks/TableTasks";
 
 const LeftDivStyle = styled.div`
 text-align: center;
-width:30%;
+width:25%;
 margin:1%;
 @media (min-width: 1920px) {
   width: 25%;

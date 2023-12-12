@@ -29,7 +29,7 @@ const DivStyleDetalhes = styled.div`
 
 const Resumo = (props) => {
   let user = props.user
-  const baseURL = "https://api-finances-will.onrender.com/finance/get-all/" + user
+  const baseURL = "${baseUrl}/finance/get-all/" + user
 
 
   const [finance, setFinanca] = React.useState([]);

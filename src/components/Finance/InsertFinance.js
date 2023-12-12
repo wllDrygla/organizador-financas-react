@@ -67,7 +67,7 @@ function InsertFinance(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    const response = await axios.post("https://api-finances-will.onrender.com/finance/insert", formData)
+    const response = await axios.post("${baseUrl}/finance/insert", formData)
     alert(`${response.data} CADASTRADO COM SUCESSO`);
     window.location.reload();
   };

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TextContent from "../components/TextContent";
+import { baseUrl } from "../../constants";
 
 const MonthStatementCategory = (props) => {
-  const baseURLcategory = `https://api-finances-will.onrender.com/finance/category-month-total/${props.category}/${props.month}/${props.user}`
-  const baseURLtotal = `https://api-finances-will.onrender.com/finance/month-statement-total/${props.user}/${props.month}`
-  const baseURLtotalInvestimento = `https://api-finances-will.onrender.com/finance/total-category/${props.user}/${props.category}`
+  const baseURLcategory = `${baseUrl}/finance/category-month-total/${props.category}/${props.month}/${props.user}`
+  const baseURLtotal = `${baseUrl}/finance/month-statement-total/${props.user}/${props.month}`
+  const baseURLtotalInvestimento = `${baseUrl}/finance/total-category/${props.user}/${props.category}`
 
 
   const [totalCategory, setTotalCategory] = React.useState('Carregando..');

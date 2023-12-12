@@ -1,0 +1,1 @@
+export const baseUrl = 'https://api-finances-will.onrender.com'
