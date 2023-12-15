@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React, { useState } from "react";
 import axios from "axios";
 import Button from "../components/Button";
+import { baseUrl } from "../../constants";
 
 const DivStyle = styled.div`
 text-align:center;
@@ -91,7 +92,7 @@ background-color: rgba(0, 255, 100, 0.300);
 const NewDivStyle = styled.div`
 text-align:center;
 border:1px gray double;
-border-radius: 5px;
+border-radius: 15px;
 margin:0px;
 padding:30px;
 background-color:white;
@@ -106,10 +107,8 @@ margin:1%;
 
 const TableTasks = (props) => {
     const [meta, setMeta] = React.useState([]);
-    const baseURLFinalizar = "${baseUrl}/task/done/"
-    const baseURLPendente = "${baseUrl}/task/to-do/"
-    const baseURLFazendo = "${baseUrl}/task/doing/"
-    const baseURLDelete = "${baseUrl}/task/"
+    const baseUrlChangeStatus = `${baseUrl}/task/changeStatus/`
+    const baseURLDelete = `${baseUrl}/task/`
 
     const [formData, setFormData] = useState({
     });
@@ -146,9 +145,9 @@ const TableTasks = (props) => {
                             return (
                                 <DivStyle>
                                     <TextContentRedStyle> {item.task} </TextContentRedStyle>
-                                    <Button action='postRequest' value=">" link={baseURLFazendo + item._id}></Button>
+                                    <Button action='postRequest' value=">" link={baseUrlChangeStatus + item._id + 'doing'}></Button>
 
-                                    <Button action='postRequest' value=">>" link={baseURLFinalizar + item._id}></Button>
+                                    <Button action='postRequest' value=">>" link={baseUrlChangeStatus + item._id + 'done'}></Button>
                                     
                                     <Button action='deleteRequest' value="X" link={baseURLDelete + item._id}></Button>
                                 </DivStyle>
@@ -170,9 +169,9 @@ const TableTasks = (props) => {
                                 <DivStyle>
                                     <TextContentBlueStyle> {item.task} </TextContentBlueStyle>
 
-                                    <Button action='postRequest' value="<" link={baseURLPendente + item._id}></Button>
+                                    <Button action='postRequest' value="<" link={baseUrlChangeStatus + item._id + 'to-do'}></Button>
 
-                                    <Button action='postRequest' value=">" link={baseURLFinalizar + item._id}></Button>
+                                    <Button action='postRequest' value=">" link={baseUrlChangeStatus + item._id + 'done'}></Button>
 
                                     <Button action='deleteRequest' value="X" link={baseURLDelete + item._id}></Button>
                                 </DivStyle>
@@ -195,9 +194,9 @@ const TableTasks = (props) => {
                                 <DivStyle>
                                     <TextContentGreenStyle> {item.task} </TextContentGreenStyle>
 
-                                    <Button action='postRequest' value="<<" link={baseURLPendente + item._id}></Button>
+                                    <Button action='postRequest' value="<<" link={baseUrlChangeStatus + item._id + 'to-do'}></Button>
 
-                                    <Button action='postRequest' value="<" link={baseURLFazendo + item._id}></Button>
+                                    <Button action='postRequest' value="<" link={baseUrlChangeStatus + item._id + 'doing'}></Button>
 
                                     <Button action='deleteRequest' value="X" link={baseURLDelete + item._id}></Button>
 

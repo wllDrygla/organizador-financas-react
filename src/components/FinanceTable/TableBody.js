@@ -3,6 +3,7 @@ import axios from 'axios';
 import styled from "styled-components";
 import Button from '../components/Button';
 import CustomModal from '../Finance/Modal';
+import { baseUrl } from '../../constants';
 
 
 const RedCellTextStyle = styled.input`
@@ -62,7 +63,7 @@ border: 1px black solid;
 `
 const TableBody = (props) => {
   const baseURLStatusChange = `${baseUrl}/finance/${props.situation}/`
-  const baseURLDelete = "${baseUrl}/finance/"
+  const baseURLDelete = `${baseUrl}/finance/`
   const item = useState({
     name: props.name,
     value: props.value,

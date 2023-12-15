@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
+import { baseUrl } from '../../constants';
 
 const DivStyle = styled.div`
 text-align:center;
@@ -67,7 +68,7 @@ function InsertFinance(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
-    const response = await axios.post("${baseUrl}/finance/insert", formData)
+    const response = await axios.post(`${baseUrl}/finance/insert`, formData)
     alert(`${response.data} CADASTRADO COM SUCESSO`);
     window.location.reload();
   };

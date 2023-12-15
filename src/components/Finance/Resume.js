@@ -4,23 +4,11 @@ import styled from "styled-components";
 import TableBody from "../FinanceTable/TableBody";
 import Total from "../components/Total";
 import TableHeader from "../FinanceTable/TableHeader";
+import { baseUrl } from "../../constants";
+import { TableStyle } from "../components/Table";
+import TextContent from "../components/TextContent";
 
 
-const DivPaiStyle = styled.div`
-text-align:center;
-border:1px gray double;
-border-radius: 5px;
-margin:50px;
-padding:30px;
-background-color:white;
-overflow-y: scroll;
-height:500px;
-
-@media (max-width: 768px) {
-  margin: 5%;
-  padding:5px;
-}
-`
 
 
 const DivStyleDetalhes = styled.div`
@@ -29,7 +17,7 @@ const DivStyleDetalhes = styled.div`
 
 const Resumo = (props) => {
   let user = props.user
-  const baseURL = "${baseUrl}/finance/get-all/" + user
+  const baseURL = `${baseUrl}/finance/get-all/` + user
 
 
   const [finance, setFinanca] = React.useState([]);
@@ -53,7 +41,9 @@ const Resumo = (props) => {
   if (!finance) return (<h1>Carregando....</h1>);
 
   return (
-    <DivPaiStyle className="teste">
+    <TableStyle>
+            <TextContent content={props.content}></TextContent>
+
       <TableHeader name='NOME' value='VALOR' ></TableHeader>
 
       {
@@ -77,7 +67,7 @@ const Resumo = (props) => {
       <Total total={total}></Total>
       
 
-    </DivPaiStyle>
+    </TableStyle>
   )
 }
 

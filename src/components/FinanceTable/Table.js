@@ -5,23 +5,9 @@ import Total from "../components/Total";
 import TextContent from "../components/TextContent";
 import TableBody from "./TableBody";
 import TableHeaderRow from "./TableHeader";
+import { baseUrl } from "../../constants";
+import { TableStyle } from "../components/Table";
 
-
-const DivPaiStyle = styled.div`
-text-align:center;
-border:1px gray double;
-border-radius: 5px;
-margin:0px;
-padding:30px;
-background-color:white;
-margin:1%;
-height: 400px;
-overflow-y: scroll;
-@media (max-width: 768px) {
-  margin: 5%;
-}
-
-`
 
 const TableCategory = (props) => {
   var total = 0
@@ -33,7 +19,7 @@ const TableCategory = (props) => {
   const title = props.title
   const user = props.user
   const [renderiza, setRenderiza] = React.useState([]);
-  const baseURL = "${baseUrl}/finance/get-all/" + user
+  const baseURL = `${baseUrl}/finance/get-all/` + user
   let listaFinancas = [
   ]
   var contador = 0
@@ -56,7 +42,7 @@ const TableCategory = (props) => {
   if (!finance) return (<h1>Carregando....</h1>);
 
   return (
-    <DivPaiStyle className="teste"> 
+    <TableStyle> 
       <TextContent content={`${title} de ${props.month}`}></TextContent>
       <TableHeaderRow name='NOME' value='VALOR'></TableHeaderRow>
 
@@ -113,7 +99,7 @@ const TableCategory = (props) => {
 
 
 
-    </DivPaiStyle>
+    </TableStyle>
   )
 
 };

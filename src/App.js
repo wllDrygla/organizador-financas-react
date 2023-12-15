@@ -6,11 +6,24 @@ import Button from "./components/components/Button";
 import { CenterDivFinance, CenterDivTask } from "./components/Div.js/CenterDiv";
 import { LeftDivFinance,  LeftDivTask } from "./components/Div.js/LeftDiv";
 import { RightDivFinance,  RightDivTask } from "./components/Div.js/RightDiv";
+import { createGlobalStyle } from 'styled-components';
+import { UserInfo } from "./components/Div.js/userInfo.js";
+import Table from "./components/FinanceTable/Table.js";
 
 const UserContext = createContext();
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: #007FFF;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    
+    text-align:center;
+  }
+`;
 const BodyStyle = styled.div`
 font-family: 'Gelasio';
-margin: 1%;
+margin: 0%;
 text-align:center;
 max-width: 100%;
 padding:0;
@@ -31,14 +44,7 @@ const OptionStyle = styled.option`
 font-size:20px;
 `
 const DivStyle = styled.div`
-background-color: rgba(200 , 200, 50, 0.050);
-border-radius:5px;
-text-align:center;
-border:1px gray double;
 display: flex;
-margin:0;
-width: 100%;
-
 @media (max-width: 768px) {
   display: block;
   margin:0%;
@@ -59,7 +65,6 @@ function App() {
   };
 
   var mesAtual = new Date().getMonth() + 1
-console.log(mesAtual)
   const [formData, setFormData] = useState({
     mesSelecionado: mesAtual
   });
@@ -71,12 +76,24 @@ console.log(mesAtual)
   const userLogged = sessionStorage.getItem("user");
   const isLoggedIn = sessionStorage.getItem("userLogged");
   return (
-
     <UserContext.Provider value={{ userLogged }}>
       {isLoggedIn == 'true' ? (
-        <BodyStyle>
-          <TextContent type='title' content={`BEM-VINDO, ${userLogged}`}></TextContent>
+        <>
+<GlobalStyle />
+<BodyStyle>
 
+<DivStyle>
+<UserInfo user={userLogged} />
+
+
+<CenterDivFinance user={userLogged} month={selectedMonth} />
+
+<LeftDivFinance user={userLogged} month={selectedMonth} />
+
+</DivStyle>
+
+
+{/* 
           <SelectStyle name="mesSelecionado" value={formData.mesSelecionado} onChange={handleSelectChange}>
           <option value={0}>Janeiro</option>
 
@@ -92,13 +109,12 @@ console.log(mesAtual)
             <OptionStyle value={10}>10 - OUTUBRO</OptionStyle>
             <OptionStyle value={11}>11 - NOVEMBRO</OptionStyle>
             <OptionStyle value={12}>12 - DEZEMBRO</OptionStyle>
-          </SelectStyle>
+          </SelectStyle> */}
 
           <DivStyle>
-            <LeftDivFinance user={userLogged} month={selectedMonth} ></LeftDivFinance>
-            <CenterDivFinance user={userLogged} month={selectedMonth}></CenterDivFinance>
-            <RightDivFinance user={userLogged} month={selectedMonth} ></RightDivFinance>
-          </DivStyle>
+          <Table user={userLogged} title='Gastos' category='negative' month={selectedMonth}> </Table>
+      <Table user={userLogged} title='Ganhos' category='positive' month={selectedMonth}></Table>
+      <Table user={userLogged} title='Investimentos'category='investiment' month={selectedMonth}></Table>          </DivStyle>
           <TextContent type='title' content='SISTEMA DE TAREFAS'></TextContent>
 
           <DivStyle>
@@ -109,6 +125,7 @@ console.log(mesAtual)
           <Button value='SAIR' action='handleLogout'></Button>
 
         </BodyStyle>
+        </>
       ) : (
         <Login>
 

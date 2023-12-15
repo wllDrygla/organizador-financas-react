@@ -1,35 +1,26 @@
 import styled from "styled-components";
 
 const TitleStyle = styled.h1`
-margin:5%;
-font-size: 50px;
+margin-left:5%;
+margin-top:5%;
+background-color: white;
+width: fit-content;
+align:center;
+border-radius: 15px;
+padding: 15px;
+border:1px gray solid;
 
-@media (max-width: 768px){
-  font-size: 20px;
-}
+
 `
 
 const ParagraphStyle = styled.p`
 margin:5%;
-font-size: 20px;
 `
 
-const SubTïtleStyle = styled.h3`
+const SubTïtleStyle = styled.h2`
 margin:5%;
-font-size:30px;
 
-@media (max-width: 1680px){
-  font-size: 30px;
-}
-@media (max-width: 1440px){
-  font-size: 25px;
-}
-@media (max-width: 1280px){
-  font-size: 20px;
-}
-@media (max-width: 768px){
-  font-size: 20px;
-}
+
 `
 
 const TextContent = (props) => {

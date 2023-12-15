@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from "styled-components";
+import { baseUrl } from '../../constants';
 
 const DivStyle = styled.div`
 text-align:center;
@@ -53,7 +54,7 @@ function InsertTask(props) {
   const handleSubmit = async (event) => {
     console.log(formData)
     event.preventDefault();
-      const response = await axios.post("${baseUrl}/task/insert", formData)
+      const response = await axios.post(`${baseUrl}/task/insert`, formData)
     alert(`${response.data} CADASTRADO COM SUCESSO`)
     };
 

@@ -1,41 +1,24 @@
-import styled from "styled-components";
 import TextContent from "../components/TextContent";
 import Table from "../FinanceTable/Table";
 import TableTasks from "../Tasks/TableTasks";
-
-const RightDivStyle = styled.div`
-text-align: center;
-width:35%;
-margin:1% ;
-@media (min-width: 1920px) {
-  width: 35%;
-  max-width: 100%;
-}
-@media (min-width: 1280px) {
-  width: 35%;
-  max-width: 100%;
-}
-@media (max-width: 768px) {
-  width: 100%;
-}
-`
+import { ContainerStyle } from "../components/Container.js";
 
 const RightDivFinance = (props) => {
   return (
-    <RightDivStyle>
+    <ContainerStyle>
       <TextContent content={`FINANÇAS MENSAIS:`}></TextContent>
       <Table user={props.user} title='Gastos' category='negative' month={props.month}> </Table>
       <Table user={props.user} title='Ganhos' category='positive' month={props.month}></Table>
       <Table user={props.user} title='Investimentos'category='investiment' month={props.month}></Table>
-    </RightDivStyle>
+    </ContainerStyle>
   )
 };
 
 const RightDivTask = (props) => {
   return (
-    <RightDivStyle>
+    <ContainerStyle>
       <TableTasks user={props.user} status='done'></TableTasks>
-    </RightDivStyle>
+    </ContainerStyle>
   )
 }
 

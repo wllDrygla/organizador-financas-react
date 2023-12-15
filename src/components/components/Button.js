@@ -69,7 +69,9 @@ const Button = (props) => {
   const postRequest = async (event) => {
     event.preventDefault();
     const response = await axios.post(props.link);
-    window.location.reload();
+    if(response.status === 201){
+      window.location.reload();
+    }
   };
 
   const deleteRequest = async (event) => {

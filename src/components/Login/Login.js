@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import TextContent from "../components/TextContent";
 import CustomModal from "../Finance/Modal";
+import { baseUrl } from "../../constants";
 
 export const UserContext = createContext();
 const BodyStyle = styled.div`
@@ -24,7 +25,7 @@ padding: 5%;
 const InputStyle = styled.input`
 margin:4px;
 font-size:20px;
-border-radius: 5px;
+border-radius: 15px;
 text-align: center;
 padding:3px;
 max-width: 250px;
@@ -36,7 +37,7 @@ font-size: 35px;
 font-family: 'Gelasio';
 padding:0 10px;
 background-color:white;
-border-radius: 5px;
+border-radius: 15px;
 margin:5px;
 `
 
@@ -95,7 +96,7 @@ const Login = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     openModalLoading();
-    axios.post("${baseUrl}/user/login", formData)
+    axios.post(`${baseUrl}/user/login`, formData)
       .then((response) => {
         console.log(response)
         if (response.data.user) {

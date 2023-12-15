@@ -4,7 +4,7 @@ import TextContent from "../components/TextContent";
 
 const DivStyle = styled.div`
 display: flex;
-border-radius: 5px;
+border-radius: 15px;
 border:1px gray double;
 justify-content: space-evenly;
 background-color: white;
